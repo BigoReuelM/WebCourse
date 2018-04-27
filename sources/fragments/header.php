@@ -4,11 +4,9 @@
       <!-- Roof area Starts -->
       <div id="roof" class="hidden-xs">
           <div class="container">
-
               <div class="quick-contacts pull-right">
-                  <span><a href="login.html"><i class="fa fa-user"></i> Login</a> / <a href="login.html">Register</a></span>
+                  <span><a href="#loginModal" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i> Login</a>
               </div>
-
           </div>
       </div>
       <!-- Roof area End -->
@@ -39,11 +37,11 @@
                 <li class="dropdown dropdown-toggle">
                   <a href="#" data-toggle="dropdown">Topics<i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Java Web Servlets</a></li>    
-                    <li><a href="#">Java Server Pages (JSP)</a></li>  
-                    <li><a href="#">PHP</a></li>
-                    <li><a href="#">Node.js</a></li>  
-                    <li><a href="#">Web Application Security</a></li> 
+                    <li><a href="servletsMainPage.php">Java Web Servlets</a></li>    
+                    <li><a href="jspMainPage.php">Java Server Pages (JSP)</a></li>  
+                    <li><a href="phpMainPage.php">PHP</a></li>
+                    <li><a href="nodeMainPage.php">Node.js</a></li>  
+                    <li><a href="webSecurityMainPage.php">Web Application Security</a></li> 
                   </ul>                        
                 </li>
                 <li class="dropdown dropdown-toggle">
@@ -59,44 +57,25 @@
             <!-- Mobile Menu Start -->
             <ul class="wpb-mobile-menu">
               <li>
-                <a class="active" href="index.html">Home</a>
-                <ul>
-                  <li><a href="index.html">Home Page 1</a></li>    
-                  <li><a class="active" href="index-1.html">Home Page 2</a></li>     
-                </ul>                        
+                <a class="active" href="index.php">Home</a>                       
               </li>
               <li>
-                <a href="#">Courses</a>
+                <a href="#">Topics</a>
                 <ul>
-                  <li><a href="courses-list.html">Courses List</a></li>    
-                  <li><a href="courses-grid.html">Courses Grid</a></li>  
-                  <li><a href="courses-single.html">Single Course</a></li>   
-                </ul>                        
-              </li>
-              <li>
-                <a href="#">Pages</a>
-                <ul>
-                  <li><a href="about.html">About Page</a></li>                     
-                  <li><a href="gallery.html">Image Gallery</a></li>
-                  <li><a href="faq.html">FAQ</a></li>    
-                  <li><a href="login.html">Login Page</a></li> 
-                  <li><a href="single-teacher.html">Single Teacher</a></li> 
-                  <li><a href="registration.html">Registration Form</a></li> 
-                  <li><a href="contact.html">Contacts</a></li> 
-                  <li><a href="404.html">404</a></li> 
-                </ul>                        
-              </li>
-              <li>
-                <a href="#">Events</a>
-                <ul>
-                  <li><a href="event-grid.html">Events Grid</a></li>                     
-                  <li><a href="event.html">Single Event</a></li>
+                  <li><a href="servletsMainPage.php">Java Web Servlets</a></li>    
+                  <li><a href="jspMainPage.php">Java Server Pages (JSP)</a></li>  
+                  <li><a href="phpMainPage.php">PHP</a></li>
+                  <li><a href="nodeMainPage.php">Node.js</a></li>  
+                  <li><a href="webSecurityMainPage.php">Web Application Security</a></li>    
                 </ul>                        
               </li> 
               <li>
+                <a href="#">Activities</a>                       
+              </li>
+              <li>
                 <a href="#">Sources</a>                       
               </li>              
-              <li><a href="contact.html">Team</a></li>
+              <li><a href="#">Team</a></li>
             </ul>
             <!-- Mobile Menu End -->
 
@@ -106,3 +85,38 @@
 
     </header>
     <!-- Header area wrapper End -->
+
+    <!-- login modal -->
+
+    <div class="modal" tabindex="-1" role="dialog" id="loginModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Log In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="" class="form-inline" id="loginForm">
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control">
+              </div>
+            </form>
+            <form action="" class="form-inline">
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button form="loginForm" type="submit" class="btn btn-primary">Log In</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- end of login modal -->
