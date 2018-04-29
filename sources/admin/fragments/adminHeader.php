@@ -5,7 +5,7 @@
       <div id="roof" class="hidden-xs">
           <div class="container">
               <div class="quick-contacts pull-right">
-                  <span><a href="login.php"><i class="fa fa-user"></i> Login</a>
+                  <span><a href="#loginModal" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i> ADMIN</a>
               </div>
           </div>
       </div>
@@ -30,27 +30,28 @@
             <div class="collapse navbar-collapse" id="navbar">
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown dropdown-toggle">
-                  <a class="active" href="index.php">Home</a>
-                  <ul class="dropdown-menu">  
-                  </ul>                        
+                  <a class="active" href="#">Lessons</a>                        
                 </li>
                 <li class="dropdown dropdown-toggle">
+                  <a class="active" href="#">Activities</a>                        
+                </li>
+                <li class="dropdown dropdown-toggle">
+                  <a class="active" href="#">Instructors</a>                        
+                </li>
+                <li class="dropdown dropdown-toggle">
+                  <a class="active" href="#">Students</a>                        
+                </li>
+                <!-- <li class="dropdown dropdown-toggle">
                   <a href="#" data-toggle="dropdown">Topics<i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu">
-                    <li><a href="servletsMainPage.php">Java Web Servlets</a></li>    
-                    <li><a href="jspMainPage.php">Java Server Pages (JSP)</a></li>  
-                    <li><a href="phpMainPage.php">PHP</a></li>
-                    <li><a href="nodeMainPage.php">Node.js</a></li>  
-                    <li><a href="webSecurityMainPage.php">Web Application Security</a></li> 
+                    <li><a href="../servletsMainPage.php">Java Web Servlets</a></li>    
+                    <li><a href="../jspMainPage.php">Java Server Pages (JSP)</a></li>  
+                    <li><a href="../phpMainPage.php">PHP</a></li>
+                    <li><a href="../nodeMainPage.php">Node.js</a></li>  
+                    <li><a href="../webSecurityMainPage.php">Web Application Security</a></li> 
                   </ul>                        
-                </li>
-                <li class="dropdown dropdown-toggle">
-                  <a href="#">Activities</i></a>                      
-                </li> 
-                <li class="dropdown dropdown-toggle">
-                  <a href="#">Sources</i></a>                       
-                </li>              
-                <li><a href="#">Team</a></li>
+                </li> -->
+                
               </ul>
             </div>    
 
