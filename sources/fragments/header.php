@@ -5,7 +5,7 @@
       <div id="roof" class="hidden-xs">
           <div class="container">
               <div class="quick-contacts pull-right">
-                  <span><a href="login.php"><i class="fa fa-user"></i> Login</a>
+                  <span><a href="#loginModal" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i> Login</a>
               </div>
           </div>
       </div>
@@ -79,3 +79,42 @@
 
     </header>
     <!-- Header area wrapper End -->
+
+
+<div id="loginModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center">Webtek</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-signin" action="process/userLogin.php" method="POST" target="_blank">
+          <h2 class="form-signin-heading text-center">Please sign in</h2>
+          <label for="inputEmail" class="sr-only">Username</label>
+          <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+          <div class="form-group">
+            <label for="userselect">Select:</label>
+            <select class="form-control" id="userselect">
+              <option selected hidden>Choose User Role</option>
+              <option value="admin">Admin</option>
+              <option value="instructor">instructor</option>
+              <option value="student">Strudent</option>
+            </select>
+          </div>
+          <!-- <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Sign in</button> -->
+          <!-- <a href="admin/adminHome.php" class="btn btn-block btn-primary">Login</a> -->
+        </form>
+      </div>
+      <div class="modal-footer">
+          <!-- <a href="instructor/instructorHome.php" class="btn btn-block btn-primary">Login</a> -->
+          <a href="student/studentHome.php" class="btn btn-block btn-primary">Login</a>
+      </div>
+    </div>
+
+  </div>
+</div>
