@@ -3,7 +3,7 @@
 $servername = "localhost";
 $user = "root";
 $pwd = "";
-$dbname = "lowwm";
+$dbname = "webtechlec";
 
 error_reporting(0);
 

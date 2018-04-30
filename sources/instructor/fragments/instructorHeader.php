@@ -29,20 +29,14 @@
             <!-- Collapse Navbar -->
             <div class="collapse navbar-collapse" id="navbar">
               <ul class="nav navbar-nav navbar-right">
-                 <li class="dropdown dropdown-toggle">
-                  <a class="active" href="adminHome.php">Home</a>                        
+                <li class="dropdown dropdown-toggle">
+                  <a class="active" href="instructorHome.php">Instructor Home</a>                        
                 </li>
                 <li class="dropdown dropdown-toggle">
-                  <a class="active" href="adminLessons.php">Add Lessons</a>                        
+                  <a class="active" href="instructorReports.php">Students Performance Report</a>                        
                 </li>
                 <li class="dropdown dropdown-toggle">
-                  <a class="active" href="adminActivities.php">Add Activities</a>                        
-                </li>
-                <li class="dropdown dropdown-toggle">
-                  <a class="active" href="adminInstructors.php">Add Instructors</a>                        
-                </li>
-                <li class="dropdown dropdown-toggle">
-                  <a class="active" href="adminStudents.php">Add Students</a>                        
+                  <a class="active" href="instructorRecords.php">Students Record</a>                        
                 </li>
                 <!-- <li class="dropdown dropdown-toggle">
                   <a href="#" data-toggle="dropdown">Topics<i class="fa fa-angle-down"></i></a>

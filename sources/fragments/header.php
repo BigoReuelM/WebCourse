@@ -45,9 +45,6 @@
                   </ul>                        
                 </li>
                 <li class="dropdown dropdown-toggle">
-                  <a href="#">Activities</i></a>                      
-                </li> 
-                <li class="dropdown dropdown-toggle">
                   <a href="#">Sources</i></a>                       
                 </li>              
                 <li><a href="#">Team</a></li>
@@ -68,9 +65,6 @@
                   <li><a href="nodeMainPage.php">Node.js</a></li>  
                   <li><a href="webSecurityMainPage.php">Web Application Security</a></li>    
                 </ul>                        
-              </li> 
-              <li>
-                <a href="#">Activities</a>                       
               </li>
               <li>
                 <a href="#">Sources</a>                       
