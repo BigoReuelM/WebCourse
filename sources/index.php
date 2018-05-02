@@ -71,13 +71,13 @@
                         </div>
                         <div class="course-detail-wrap">
                             <div class="teacher-wrap">
-                                <span class="course-instructor">by <a href="#">Maria Bella</a>, <a href="#">Jana Smith</a></span>
-                                <img src="assets/img/courses/thumb-teacher-1.jpg" alt="">
+                                
+                                <img src="assets/img/courses/Christian.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html">Computer Science</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed. Optio, reprehenderit, ex.Repellendus,…</p>
-                                <a href="#" class="btn btn-common btn-sm">Apply Now</a>
+                                <h3><a href="courses-single.html">Christian Beltran</a></h3>
+                                <p>Email: c.beltran27@yahoo.com@gmail.com <br>
+                                contact no: 09062166899 <br> Course: Bachelor of science and information sciences</p>
                             </div>
                         </div>
                     </div>
@@ -92,13 +92,14 @@
                         </div>
                         <div class="course-detail-wrap">
                             <div class="teacher-wrap">
-                                <span class="course-instructor">by <a href="#">Jana Smith</a>, <a href="#">Kiwhi Leonard</a></span>
-                                <img src="assets/img/courses/thumb-teacher-2.jpg" alt="">
+                                
+                                <img src="assets/img/courses/Reuel.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html">Micro Biology</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed. Optio, reprehenderit, ex.Repellendus,…</p>
-                                <a href="#" class="btn btn-common btn-sm">Apply Now</a>
+                                <h3><a href="courses-single.html"> Reuel, Bigo</a></h3>
+                                <p>Email:bigoreuel.rb@gmail.com <br>
+                                contact no: 09260878700 <br> Course: Bachelor of science and information sciences</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -113,13 +114,14 @@
                         </div>
                         <div class="course-detail-wrap">
                             <div class="teacher-wrap">
-                                <span class="course-instructor">by <a href="#">jana Smith</a>, <a href="#">Maria Bella</a></span>
-                                <img src="assets/img/courses/thumb-teacher-3.jpg" alt="">
+                                
+                                <img src="assets/img/courses/Lemuel.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html">Gobal Economic</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed. Optio, reprehenderit, ex.Repellendus,…</p>
-                                <a href="#" class="btn btn-common btn-sm">Apply Now</a>
+                                <h3><a href="courses-single.html">Lemuel Estacio</a></h3>
+                                <p>Email: estacio.lemuel@gmail.com <br>
+                                contact no: 09976658589 <br> Course: Bachelor of science and information sciences</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -134,13 +136,14 @@
                         </div>
                         <div class="course-detail-wrap">
                             <div class="teacher-wrap">
-                                <span class="course-instructor">by <a href="#">Maria Bella</a>, <a href="#">Jana Smith</a></span>
-                                <img src="assets/img/courses/thumb-teacher-1.jpg" alt="">
+                                
+                                <img src="assets/img/courses/raoul.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html">Crash Course on Android/iOS</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed. Optio, reprehenderit, ex.Repellendus,…</p>
-                                <a href="#" class="btn btn-common btn-sm">Apply Now</a>
+                                <h3><a href="courses-single.html">Raoul Kristian Madayag</a></h3>
+                                <p>Email: raoul.madayag012@gmail.com <br>
+                                contact no: 099766785647 <br> Course: Bachelor of science and information sciences</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -155,19 +158,20 @@
                         </div>
                         <div class="course-detail-wrap">
                             <div class="teacher-wrap">
-                                <span class="course-instructor">by <a href="#">Jana Smith</a>, <a href="#">Kiwhi Leonard</a></span>
-                                <img src="assets/img/courses/thumb-teacher-2.jpg" alt="">
+                               
+                                <img src="assets/img/courses/famae.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html">Diving into Big Data</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed. Optio, reprehenderit, ex.Repellendus,…</p>
-                                <a href="#" class="btn btn-common btn-sm">Apply Now</a>
+                                <h3><a href="courses-single.html"> Fatima Mae Pascua</a></h3>
+                                <p>Email: fatima.pascua@gmail.com <br>
+                                contact no: 09163320433 <br> Course: Bachelor of science and information sciences</p>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="courses-list.html">More Courses <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            
         </div>
     </section>
     <!-- Courses Section End -->
