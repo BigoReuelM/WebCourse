@@ -1,13 +1,28 @@
-    
+<?php include('session.php'); ?>  
     <!-- Header area wrapper Starts -->
     <header id="header-wrap">
       <!-- Roof area Starts -->
       <div id="roof" class="hidden-xs">
-          <div class="container">
-              <div class="quick-contacts pull-right">
-                  <span><a href="#loginModal" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i> Login</a>
-              </div>
+        <div class="container">
+          <div class="quick-contacts pull-right">
+            <?php if ($userRole === "admin"): ?>
+              <span class="text-muted">Admin</span>
+            <?php endif ?>
+            <?php if ($userRole === "instructor"): ?>
+              <span class="text-muted">Instructor</span>
+            <?php endif ?>
+            <?php if ($userRole === "student"): ?>
+              <span class="text-muted">Student</span>
+            <?php endif ?>
+            <?php if ($userLogedin): ?>
+              <span><?php echo $userName ?></span>
+              <span><a href="process/userLogout.php"><i class="fa fa-user"></i> Logout</a></span>
+            <?php endif ?>
+            <?php if (!$userLogedin): ?>
+              <span><a href="#loginModal" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i> Login</a></span>
+            <?php endif ?>
           </div>
+        </div>
       </div>
       <!-- Roof area End -->
 
@@ -44,6 +59,25 @@
                     <li><a href="webSecurityMainPage.php">Web Application Security</a></li> 
                   </ul>                        
                 </li>
+                <?php if ($userRole === "admin"): ?>
+                  <li class="dropdown dropdown-toggle">
+                    <a href="#" data-toggle="dropdown">Actions<i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="adminActivities.php">Add Activities</a></li>
+                      <li><a href="adminLessons.php">Add Lessons</a></li>
+                      <li><a href="adminInstructors.php">Add Instructors</a></li>
+                      <li><a href="adminStudents.php">Add Students</a></li>
+                    </ul>
+                  </li>
+                <?php endif ?>
+                <?php if ($userRole === "instructor"): ?>
+                  <li><a href="instructorRecords.php">Records</i></a></li>
+                  <li><a href="instructorReports.php">Reports</a></li>
+                <?php endif ?>
+                <?php if ($userRole === "student"): ?>
+                  <li><a href="studentActivities.php">Activities</i></a></li>
+                  <li><a href="studentLessonsAnnouncements.php">Announcements</a></li>
+                <?php endif ?>
                 <li class="dropdown dropdown-toggle">
                   <a href="#">Sources</i></a>                       
                 </li>              
@@ -91,28 +125,16 @@
         <h4 class="modal-title text-center">Webtek</h4>
       </div>
       <div class="modal-body">
-        <form class="form-signin" action="process/userLogin.php" method="POST" target="_blank">
+        <form id="userLogin" class="form-signin" action="process/userLogin.php" method="POST" target="_blank">
           <h2 class="form-signin-heading text-center">Please sign in</h2>
           <label for="inputEmail" class="sr-only">Username</label>
           <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
           <label for="inputPassword" class="sr-only">Password</label>
           <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
-          <div class="form-group">
-            <label for="userselect">Select:</label>
-            <select class="form-control" id="userselect">
-              <option selected hidden>Choose User Role</option>
-              <option value="admin">Admin</option>
-              <option value="instructor">instructor</option>
-              <option value="student">Strudent</option>
-            </select>
-          </div>
-          <!-- <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Sign in</button> -->
-          <!-- <a href="admin/adminHome.php" class="btn btn-block btn-primary">Login</a> -->
         </form>
       </div>
       <div class="modal-footer">
-          <!-- <a href="instructor/instructorHome.php" class="btn btn-block btn-primary">Login</a> -->
-          <a href="student/studentHome.php" class="btn btn-block btn-primary">Login</a>
+          <button form="userLogin" class="btn btn-lg btn-primary btn-block" name="login" type="submit">Sign in</button>
       </div>
     </div>
 

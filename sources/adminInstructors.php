@@ -1,6 +1,6 @@
 <?php 
-    include 'fragments/adminHead.php';
-    include 'fragments/adminHeader.php';
+    include 'fragments/head.php';
+    include 'fragments/header.php';
 ?>
 
     <!-- Activity Area Start -->
@@ -12,5 +12,5 @@
     <!-- Courses Section End -->
 
 <?php 
-    include 'fragments/adminFooter.php';
+    include 'fragments/footer.php';
 ?>

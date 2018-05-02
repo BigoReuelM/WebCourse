@@ -107,9 +107,7 @@
     <!-- jQuery  -->
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <!-- <script type="text/javascript" src="assets/js/color-switcher.js"></script> -->
     <script type="text/javascript" src="assets/js/jquery.mixitup.js"></script>
-    <script type="text/javascript" src="assets/js/wow.js"></script>
     <script type="text/javascript" src="assets/js/nivo-lightbox.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.countdown.js"></script>  
     <script type="text/javascript" src="assets/js/jquery.counterup.min.js"></script>   
