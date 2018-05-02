@@ -10,68 +10,17 @@
               Contact Info
             </h3>
             <p>
-              A powerhouse of cutting-edge education, research & teaching in The World
+              An educational course website for students and faculty
             </p>  
             <ul class="address">
-                <li><i class="fa fa-home"></i> Sydney NSW 2052, Australia</li>
-                <li><i class="fa fa-phone"></i> +61 2 9385 1000</li>
-                <li><i class="fa fa-envelope"></i> hello@brightuniversity.edu</li>
+                <li><i class="fa fa-home"></i> saint louis university, mary height, bakakeng baguio city</li>
+                <li><i class="fa fa-phone"></i> +63 976658 589</li>
+                <li><i class="fa fa-envelope"></i> saintlouisuniversity@slu.edu.ph</li>
             </ul>        
           </div><!-- Footer Widget Ends -->
           
           <!-- Footer Widget Starts -->
-          <div class="footer-widget col-md-3 col-sm-6 col-xs-12">
-            <h3 class="small-title">
-              Latest News
-            </h3>
-            <ul class="recent-post">
-              <li class="post">
-                <a href="assets/img/flicker/img1.jpg" class="lightbox">
-                <img alt="" src="assets/img/flicker/img1.jpg">
-                </a>
-                <p class="text">Fightin'the system like true modern <br><span>Nov 05,2016</span></p>
-              </li>
-              <li class="post">
-                <a href="assets/img/flicker/img1.jpg" class="lightbox">
-                <img alt="" src="assets/img/flicker/img2.jpg">
-                </a>
-                <p class="text">Will we're movin' on up to the east side <br><span>Nov 09,2016</span></p>
-              </li>
-            </ul>
-          </div>
-          <!-- Footer Widget Ends -->        
-
-          <!-- Footer Widget Starts -->
-          <div class="footer-widget col-md-3 col-sm-6 col-xs-12">
-            <h3 class="small-title">
-              Our Courses
-            </h3>
-            <ul class="list">
-              <li><a href="#">Web design</a></li>
-              <li><a href="#">Android Developer</a></li>
-              <li><a href="#">PHP Tranning</a></li>
-              <li><a href="#">IOS Developer</a></li>
-              <li><a href="#">App Design Package</a></li>
-            </ul>
-          </div>
-          <!-- Footer Widget Ends -->
-
-          <!-- Footer Widget Starts -->
-          <div class="footer-widget col-md-3 col-sm-6 col-xs-12">
-            <h3 class="small-title">
-              College Gallery
-            </h3>
-            <div class="plain-flicker-gallery">
-              <a href="#" title="Pan Masala"><img src="assets/img/flicker/img1.jpg" alt=""></a>
-              <a href="#" title="Sports Template for Joomla"><img src="assets/img/flicker/img2.jpg" alt=""></a>
-              <a href="" title="Apple Keyboard"><img src="assets/img/flicker/img3.jpg" alt=""></a>
-              <a href="" title="Hard Working"><img src="assets/img/flicker/img4.jpg" alt=""></a>
-              <a href="" title="Smile"><img src="assets/img/flicker/img5.jpg" alt=""></a>
-              <a href="" title="Puzzle"><img src="assets/img/flicker/img6.jpg" alt=""></a>
-            </div>
-          </div><!-- Footer Widget Ends -->
-        </div><!-- Row Ends -->
-      </div><!-- Container Ends -->
+          
       
       <!-- Copyright -->
       <div id="copyright">
@@ -79,7 +28,7 @@
           <div class="row">
             <div class="col-md-6  col-sm-6">
               <p class="copyright-text">
-                © All rights reserved 2017 - Design &amp; Developed by <a rel="nofollow" href="http://graygrids.com">GrayGrids</a>
+                © All rights reserved 2018 - Design &amp; Developed by <a rel="nofollow" href="http://graygrids.com">webtekgroup</a>
               </p>
             </div>
             <div class="col-md-6  col-sm-6">                
