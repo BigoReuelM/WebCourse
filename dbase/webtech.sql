@@ -1,24 +1,28 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2018 at 10:11 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Generation Time: May 03, 2018 at 08:07 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `webtech`
 --
+CREATE DATABASE IF NOT EXISTS `webtech` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `webtech`;
 
 -- --------------------------------------------------------
 
@@ -26,14 +30,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `activities`
 --
 
-CREATE TABLE IF NOT EXISTS `activities` (
-  `activityid` int(11) NOT NULL,
-  `question` varchar(45) DEFAULT NULL,
-  `answer` varchar(45) DEFAULT NULL,
-  `type` enum('identification','enumeration','multiple choice') DEFAULT NULL,
-  `instructor` int(11) DEFAULT NULL,
-  PRIMARY KEY (`activityid`),
-  KEY `instructor_placer_id_idx` (`instructor`)
+CREATE TABLE `activities` (
+  `activityID` int(10) NOT NULL,
+  `question` text,
+  `answer` text,
+  `type` enum('identification','enumeration','multipleChoice','assignment') DEFAULT NULL,
+  `instructor` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -42,31 +44,13 @@ CREATE TABLE IF NOT EXISTS `activities` (
 -- Table structure for table `content`
 --
 
-CREATE TABLE IF NOT EXISTS `content` (
-  `idcontent` int(11) NOT NULL,
-  `title` varchar(10000) DEFAULT NULL,
-  `heading` varchar(10000) DEFAULT NULL,
-  `body` varchar(10000) DEFAULT NULL,
-  `sample` varchar(10000) DEFAULT NULL,
-  `inatructor` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idcontent`),
-  KEY `instructor_id_idx` (`inatructor`),
-  KEY `instructor_uplaoder_id_idx` (`inatructor`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `faculty`
---
-
-CREATE TABLE IF NOT EXISTS `faculty` (
-  `facultyid` int(11) NOT NULL,
-  `firstname` varchar(45) DEFAULT NULL,
-  `lastname` varchar(45) DEFAULT NULL,
-  `middlename` varchar(45) DEFAULT NULL,
-  `role` enum('Instructor','Admin') DEFAULT NULL,
-  PRIMARY KEY (`facultyid`)
+CREATE TABLE `content` (
+  `contentID` int(10) NOT NULL,
+  `title` text,
+  `heading` text,
+  `body` text,
+  `sample` text,
+  `instructor` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -75,35 +59,93 @@ CREATE TABLE IF NOT EXISTS `faculty` (
 -- Table structure for table `records`
 --
 
-CREATE TABLE IF NOT EXISTS `records` (
-  `idrecords` int(11) NOT NULL,
-  `score` int(10) DEFAULT NULL,
-  `student` int(11) DEFAULT NULL,
-  `activity` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idrecords`),
-  KEY `student_scores_idx` (`student`),
-  KEY `activity_id_idx` (`activity`)
+CREATE TABLE `records` (
+  `recordID` int(10) NOT NULL,
+  `score` int(10) NOT NULL,
+  `student` int(10) NOT NULL,
+  `activity` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student`
+-- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `student` (
-  `iduser` int(11) NOT NULL,
-  `username` varchar(45) DEFAULT NULL,
-  `firstname` varchar(45) DEFAULT NULL,
-  `lastname` varchar(45) DEFAULT NULL,
-  `middlename` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
+CREATE TABLE `users` (
+  `userID` int(10) NOT NULL,
+  `idNumber` int(10) NOT NULL,
+  `firstName` varchar(45) NOT NULL,
+  `lastName` varchar(45) NOT NULL,
+  `middleName` varchar(45) NOT NULL,
+  `userType` enum('admin','instructor','student','') NOT NULL,
+  `password` varchar(255) NOT NULL,
   `course` varchar(45) DEFAULT NULL,
   `year` varchar(45) DEFAULT NULL,
-  `instructor` int(11) DEFAULT NULL,
-  PRIMARY KEY (`iduser`),
-  KEY `instructor_id_idx` (`instructor`)
+  `instructor` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `activities`
+--
+ALTER TABLE `activities`
+  ADD PRIMARY KEY (`activityID`),
+  ADD KEY `activity_maker` (`instructor`);
+
+--
+-- Indexes for table `content`
+--
+ALTER TABLE `content`
+  ADD PRIMARY KEY (`contentID`),
+  ADD KEY `content_pusher` (`instructor`);
+
+--
+-- Indexes for table `records`
+--
+ALTER TABLE `records`
+  ADD PRIMARY KEY (`recordID`),
+  ADD KEY `score_owner` (`student`),
+  ADD KEY `performed_activity` (`activity`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `school_id` (`idNumber`),
+  ADD KEY `class_instructor` (`instructor`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `activities`
+--
+ALTER TABLE `activities`
+  MODIFY `activityID` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `content`
+--
+ALTER TABLE `content`
+  MODIFY `contentID` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `records`
+--
+ALTER TABLE `records`
+  MODIFY `recordID` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userID` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -113,26 +155,27 @@ CREATE TABLE IF NOT EXISTS `student` (
 -- Constraints for table `activities`
 --
 ALTER TABLE `activities`
-  ADD CONSTRAINT `instructor_placer_id` FOREIGN KEY (`instructor`) REFERENCES `faculty` (`facultyid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `activity_maker` FOREIGN KEY (`instructor`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `content`
 --
 ALTER TABLE `content`
-  ADD CONSTRAINT `instructor_uplaoder_id` FOREIGN KEY (`inatructor`) REFERENCES `faculty` (`facultyid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `content_pusher` FOREIGN KEY (`instructor`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `records`
 --
 ALTER TABLE `records`
-  ADD CONSTRAINT `activity_id` FOREIGN KEY (`activity`) REFERENCES `activities` (`activityid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `student_scores` FOREIGN KEY (`student`) REFERENCES `student` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `performed_activity` FOREIGN KEY (`activity`) REFERENCES `activities` (`activityID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `score_owner` FOREIGN KEY (`student`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `student`
+-- Constraints for table `users`
 --
-ALTER TABLE `student`
-  ADD CONSTRAINT `instructor_id` FOREIGN KEY (`instructor`) REFERENCES `faculty` (`facultyid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `users`
+  ADD CONSTRAINT `class_instructor` FOREIGN KEY (`instructor`) REFERENCES `users` (`userID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
