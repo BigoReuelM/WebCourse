@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt=""></a>
+              <a class="navbar-brand" href="home.php"><img src="assets/img/logo.png" alt=""></a>
             </div>
             <!-- Brand End -->
 
@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="navbar">
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown dropdown-toggle">
-                  <a class="active" href="index.php">Home</a>
+                  <a class="active" href="home.php">Home</a>
                   <ul class="dropdown-menu">  
                   </ul>                        
                 </li>
@@ -64,7 +64,6 @@
                     <a href="#" data-toggle="dropdown">Actions<i class="fa fa-angle-down"></i></a>
                     <ul class="dropdown-menu">
                       <li><a href="adminActivities.php">Add Activities</a></li>
-                      <li><a href="adminLessons.php">Add Lessons</a></li>
                       <li><a href="adminInstructors.php">Add Instructors</a></li>
                       <li><a href="adminStudents.php">Add Students</a></li>
                     </ul>
@@ -73,6 +72,7 @@
                 <?php if ($userRole === "instructor"): ?>
                   <li><a href="instructorRecords.php">Records</i></a></li>
                   <li><a href="instructorReports.php">Reports</a></li>
+                  <li><a href="instructorLessons.php">Lessons</a></li>
                 <?php endif ?>
                 <?php if ($userRole === "student"): ?>
                   <li><a href="studentActivities.php">Activities</i></a></li>
@@ -81,14 +81,13 @@
                 <li class="dropdown dropdown-toggle">
                   <a href="#">Sources</i></a>                       
                 </li>              
-                <li><a href="#">Team</a></li>
               </ul>
             </div>    
 
             <!-- Mobile Menu Start -->
             <ul class="wpb-mobile-menu">
               <li>
-                <a class="active" href="index.php">Home</a>                       
+                <a class="active" href="home.php">Home</a>                       
               </li>
               <li>
                 <a href="#">Topics</a>
@@ -103,7 +102,6 @@
               <li>
                 <a href="#">Sources</a>                       
               </li>              
-              <li><a href="#">Team</a></li>
             </ul>
             <!-- Mobile Menu End -->
 

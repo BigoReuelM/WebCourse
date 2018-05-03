@@ -15,16 +15,17 @@
 
 			if ($result->num_rows == 1) {
 				$data = $result->fetch_assoc();
-				$_SESSION['user_id'] = $data['userID'];
-				$_SESSION['fname'] = $data['firstName'];
-				$_SESSION['lname'] = $data['lastName'];
-				$_SESSION['mname'] = $data['middleName'];
-				$_SESSION['user_role'] = $data['userType'];
+				$_SESSION['userID'] = $data['userID'];
+				$_SESSION['firstName'] = $data['firstName'];
+				$_SESSION['lastName'] = $data['lastName'];
+				$_SESSION['middleName'] = $data['middleName'];
+				$_SESSION['userType'] = $data['userType'];
 				$_SESSION['instructor'] = $data['instructor'];
-				$_SESSION['username'] = $data['username'];
 				$_SESSION['course'] = $data['course'];
 				$_SESSION['year'] = $data['year'];
-				header("location: ../index.php");
+				
+				header("location: ../home.php");
+				exit;
 
 			}else{
 				$error = "Username or Password is invalid";

@@ -1,7 +1,7 @@
 <?php 
 	include('fragments/db.php');
 
-	$query = "SELECT * FROM users WHERE user_role like 'instructor'";
+	$query = "SELECT * FROM users WHERE userType like 'instructor'";
 
 	$result = $con->query($query);
 
@@ -20,10 +20,11 @@
 		while($data = $result->fetch_assoc()){
 			echo "<tr>";
 			echo "<th scope='row'>" . $colIndex . "</th>";
-			echo "<td>" . $data['fname'] . "</td>";
-			echo "<td>" . $data['mname'] . "</td>";
-			echo "<td>" . $data['lname'] . "</td>"; 
+			echo "<td>" . $data['firstName'] . "</td>";
+			echo "<td>" . $data['middleName'] . "</td>";
+			echo "<td>" . $data['lastName'] . "</td>"; 
 			echo "</tr>";
+			$colIndex++;
 		}
 		echo "</tbody>
 			</table>";	

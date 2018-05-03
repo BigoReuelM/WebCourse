@@ -2,9 +2,9 @@
   session_start();
   $userLogedin = false;
   $userRole = "none";
-  if (isset($_SESSION['user_id'])) {
+  if (isset($_SESSION['userID'])) {
     $userLogedin = true;
-    $userRole = $_SESSION['user_role'];
-    $userName = $_SESSION['fname'] . " " . $_SESSION['mname'] . " " . $_SESSION['lname'];
+    $userRole = $_SESSION['userType'];
+    $userName = $_SESSION['firstName'] . " " . $_SESSION['middleName'] . " " . $_SESSION['lastName'];
   }
 ?> 
