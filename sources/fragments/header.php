@@ -44,11 +44,13 @@
             <!-- Collapse Navbar -->
             <div class="collapse navbar-collapse" id="navbar">
               <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown dropdown-toggle">
-                  <a class="active" href="home.php">Home</a>
-                  <ul class="dropdown-menu">  
-                  </ul>                        
-                </li>
+                <?php if ($userRole === "student" || $userLogedin == false): ?>
+                  <li class="dropdown dropdown-toggle">
+                    <a class="active" href="home.php">Home</a>
+                    <ul class="dropdown-menu">  
+                    </ul>                        
+                  </li>
+                <?php endif ?>
                 <li class="dropdown dropdown-toggle">
                   <a href="#" data-toggle="dropdown">Topics<i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu">

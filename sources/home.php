@@ -75,7 +75,7 @@
                                 <img src="assets/img/courses/Christian.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html">Christian Beltran</a></h3>
+                                <h3>Christian Beltran</h3>
                                 <p>Email: c.beltran27@yahoo.com@gmail.com <br>
                                 contact no: 09062166899 <br> Course: Bachelor of science and information sciences</p>
                             </div>
@@ -96,7 +96,7 @@
                                 <img src="assets/img/courses/Reuel.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html"> Reuel, Bigo</a></h3>
+                                <h3>Reuel, Bigo</h3>
                                 <p>Email:bigoreuel.rb@gmail.com <br>
                                 contact no: 09260878700 <br> Course: Bachelor of science and information sciences</p>
                                 
@@ -118,7 +118,7 @@
                                 <img src="assets/img/courses/Lemuel.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html">Lemuel Estacio</a></h3>
+                                <h3>Lemuel Estacio</h3>
                                 <p>Email: estacio.lemuel@gmail.com <br>
                                 contact no: 09976658589 <br> Course: Bachelor of science and information sciences</p>
                                 
@@ -140,7 +140,7 @@
                                 <img src="assets/img/courses/raoul.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html">Raoul Kristian Madayag</a></h3>
+                                <h3>Raoul Kristian Madayag</h3>
                                 <p>Email: raoul.madayag012@gmail.com <br>
                                 contact no: 099766785647 <br> Course: Bachelor of science and information sciences</p>
                                 
@@ -162,7 +162,7 @@
                                 <img src="assets/img/courses/famae.jpg" alt="">
                             </div>
                             <div class="course-content">
-                                <h3><a href="courses-single.html"> Fatima Mae Pascua</a></h3>
+                                <h3>Fatima Mae Pascua</h3>
                                 <p>Email: fatima.pascua@gmail.com <br>
                                 contact no: 09163320433 <br> Course: Bachelor of science and information sciences</p>
                                 

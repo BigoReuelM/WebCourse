@@ -24,6 +24,7 @@
 			echo "<td>" . $data['middleName'] . "</td>";
 			echo "<td>" . $data['lastName'] . "</td>"; 
 			echo "</tr>";
+			$colIndex++;
 		}
 		echo "</tbody>
 			</table>";	

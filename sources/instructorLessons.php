@@ -9,7 +9,6 @@
             <h1>Lessons</h1>
         </div>
     </section>
-    <!-- Courses Section End -->
 
 <?php 
     include 'fragments/footer.php';
