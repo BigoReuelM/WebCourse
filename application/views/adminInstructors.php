@@ -1,11 +1,16 @@
 
     <!-- Activity Area Start -->
     <section class="activity-area section">
+        
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h1>Instructors</h1>
-                    <div class="well">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#list" data-toggle="tab">Instructor List</a></li>
+                <li><a href="#add" data-toggle="tab">Add Instructor</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="list">
+
+                    <div class="">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -33,8 +38,10 @@
                             </tbody>
                         </table>
                     </div>
+
                 </div>
-                <div class="col-lg-6">
+                <div class="tab-pane fade" id="add">
+
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <p class="text-center">Add Instructor</p>
@@ -73,9 +80,11 @@
                         <div class="panel-footer">
                             <button type="submit" form="addNewInstructorForm" class="btn btn-primary">Confirm</button>
                         </div>
-                    </div>        
-                </div>
+                    </div>
+
+                </div>         
             </div>
         </div>
+
     </section>
     <!-- Courses Section End -->

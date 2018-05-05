@@ -57,7 +57,8 @@
 
 			$data = array('success' => false, 'messages' => array());
 
-			$this->form_validation->set_rules('instructorIdNumber', 'ID Number', 'trim|required');
+			$this->form_validation->set_rules('instructorIdNumber', 'ID Number', 'trim|required|is_unique[users.idNumber]');
+			$this->form_validation->set_message('is_unique', 'This ID number allready exist.');
 			$this->form_validation->set_rules('instructorFname', 'First Name', 'trim|required');
 			$this->form_validation->set_rules('instructorMname', 'Middle Name', 'trim|required');
 			$this->form_validation->set_rules('instructorLname', 'Last Name', 'trim|required');
