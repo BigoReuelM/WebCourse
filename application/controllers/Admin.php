@@ -50,12 +50,29 @@
 
 		public function addInstructor(){
 
-			$instructorIdNumber = trim(htmlspecialchars($this->input->post('instructorIdNumber')));
-			$instructorFname = trim(htmlspecialchars($this->input->post('instructorFname')));
-			$instructorMname = trim(htmlspecialchars($this->input->post('instructorMname')));
-			$instructorLname = trim(htmlspecialchars($this->input->post('instructorLname')));
-			$this->user_model->insertNewInstructor($instructorIdNumber, $instructorFname, $instructorMname, $instructorLname);
-			redirect('admin/loadInstructorsPage');
+			$data = array('success' => false, 'messages' => array());
+
+			$this->form_validation->set_rules('instructorIdNumber', 'ID Number', 'trim|required');
+			$this->form_validation->set_rules('instructorFname', 'First Name', 'trim|required');
+			$this->form_validation->set_rules('instructorMname', 'Middle Name', 'trim|required');
+			$this->form_validation->set_rules('instructorLname', 'Last Name', 'trim|required');
+			$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+			if ($this->form_validation->run()) {
+				$instructorIdNumber = htmlspecialchars($this->input->post('instructorIdNumber'));
+				$instructorFname = ucwords( htmlspecialchars($this->input->post('instructorFname')));
+				$instructorMname = ucwords(htmlspecialchars($this->input->post('instructorMname')));
+				$instructorLname = ucwords(htmlspecialchars($this->input->post('instructorLname')));
+				$this->user_model->insertNewInstructor($instructorIdNumber, $instructorFname, $instructorMname, $instructorLname);
+				$data['success'] = true;
+				//redirect('admin/loadInstructorsPage');
+			}else{
+				foreach ($_POST as $key => $value) {
+					$data['messages'][$key] = form_error($key);
+				}
+			}
+
+			echo json_encode($data);
 		}
 	}
 ?>

@@ -39,36 +39,39 @@
                         <div class="panel-heading">
                             <p class="text-center">Add Instructor</p>
                         </div>
+                        <div id="the-message">
+                            
+                        </div>
                         <div class="panel-body">
-                            <form class="form-horizontal" method="POST" action="<?php echo base_url('admin/addInstructor') ?>" id="addNewInstructorForm">
+                            <form class="form-horizontal" method="POST" action="<?php echo base_url('admin/addInstructor') ?>" id="addNewInstructorForm" autocomplete="off">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="instructorIdNumber">ID Number:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="instructorIdNumber">
+                                        <input type="text" class="form-control" name="instructorIdNumber" id="instructorIdNumber">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="instructorFname">First Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="instructorFname">
+                                        <input type="text" class="form-control" name="instructorFname" id="instructorFname">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="instructorMname">Middle Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="instructorMname">
+                                        <input type="text" class="form-control" name="instructorMname" id="instructorMname">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="instructorLname">Last Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="instructorLname">
+                                        <input type="text" class="form-control" name="instructorLname" id="instructorLname">
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="panel-footer">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#confirmModal">Add</button>
+                            <button type="submit" form="addNewInstructorForm" class="btn btn-primary">Confirm</button>
                         </div>
                     </div>        
                 </div>
@@ -77,22 +80,50 @@
     </section>
     <!-- Courses Section End -->
 
-<div class="modal" tabindex="-1" role="dialog" id="confirmModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Add Instructor</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Confirm Add Instructor?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" form="addNewInstructorForm" name="addInstructorConfirm" class="btn btn-primary">Confirm</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+<script>
+      $('#addNewInstructorForm').submit(function(e){
+      e.preventDefault();
+
+      var instructorDetails = $(this);
+
+      $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: instructorDetails.attr('action'),
+        data: instructorDetails.serialize(),
+        success: function(response){
+          if (response.success == true) {
+            // if success we would show message
+            // and also remove the error class
+            $('#the-message').append('<div class="alert alert-success text-center">' +
+            '<span class="glyphicon glyphicon-ok"></span>' +
+            ' New client has been saved.' +
+            '</div>');
+            $('.form-group').removeClass('has-error')
+                  .removeClass('has-success');
+            $('.text-danger').remove();
+            // reset the form
+            instructorDetails[0].reset();
+            // close the message after seconds
+            $('.alert-success').delay(500).show(10, function() {
+             $(this).delay(3000).hide(10, function() {
+                $(this).remove();
+              });
+            })
+          }else{
+            $.each(response.messages, function(key, value) {
+              var element = $('#' + key);
+              
+              element.closest('div.form-group')
+              .removeClass('has-error')
+              .addClass(value.length > 0 ? 'has-error' : 'has-success')
+              .find('.text-danger')
+              .remove();
+              
+              element.after(value);
+            });
+          }
+        }
+      });
+    });
+</script>

@@ -54,7 +54,7 @@
 
     
     <!-- jQuery  -->
-    <script type="text/javascript" src="<?php echo base_url() ?>/public/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>/public/assets/js/jquery.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>/public/assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>/public/assets/js/jquery.mixitup.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>/public/assets/js/nivo-lightbox.min.js"></script>
