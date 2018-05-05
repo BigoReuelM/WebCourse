@@ -19,6 +19,7 @@
 			$data['session'] = $this->session_model->sessionCheck();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
+			$this->load->view('fragments/scripts.php');
 			$this->load->view('activities.php');
 			$this->load->view('fragments/footer.php');
 		}
@@ -27,6 +28,7 @@
 			$data['session'] = $this->session_model->sessionCheck();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
+			$this->load->view('fragments/scripts.php');
 			$this->load->view('lessons.php');
 			$this->load->view('fragments/footer.php');		
 		}
@@ -36,6 +38,7 @@
 			$instructorData['instructors'] = $this->user_model->getInstructors();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php', $data);
+			$this->load->view('fragments/scripts.php');
 			$this->load->view('adminInstructors.php', $instructorData);
 			$this->load->view('fragments/footer.php');
 		}
@@ -44,6 +47,7 @@
 			$data['session'] = $this->session_model->sessionCheck();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
+			$this->load->view('fragments/scripts.php');
 			$this->load->view('adminStudents.php');
 			$this->load->view('fragments/footer.php');
 		}

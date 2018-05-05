@@ -18,6 +18,7 @@ class Welcome extends CI_Controller {
 		$data['session'] = $this->session_model->sessionCheck();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
+		$this->load->view('fragments/scripts.php');
 		$this->load->view('home.php');
 		$this->load->view('fragments/footer.php');
 	}
@@ -27,6 +28,7 @@ class Welcome extends CI_Controller {
 		$data['session'] = $this->session_model->sessionCheck();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
+		$this->load->view('fragments/scripts.php');
 		$this->load->view('servletsMainPage.php');
 		$this->load->view('fragments/footer.php');
 	}
@@ -36,6 +38,7 @@ class Welcome extends CI_Controller {
 		$data['session'] = $this->session_model->sessionCheck();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
+		$this->load->view('fragments/scripts.php');
 		$this->load->view('jspMainPage.php');
 		$this->load->view('fragments/footer.php');
 	}
@@ -45,6 +48,7 @@ class Welcome extends CI_Controller {
 		$data['session'] = $this->session_model->sessionCheck();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
+		$this->load->view('fragments/scripts.php');
 		$this->load->view('nodeMainPage.php');
 		$this->load->view('fragments/footer.php');
 	}
@@ -54,6 +58,7 @@ class Welcome extends CI_Controller {
 		$data['session'] = $this->session_model->sessionCheck();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
+		$this->load->view('fragments/scripts.php');
 		$this->load->view('phpMainPage.php');
 		$this->load->view('fragments/footer.php');
 	}
@@ -63,6 +68,7 @@ class Welcome extends CI_Controller {
 		$data['session'] = $this->session_model->sessionCheck();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
+		$this->load->view('fragments/scripts.php');
 		$this->load->view('webSecurityMainPage.php');
 		$this->load->view('fragments/footer.php');
 	}
@@ -72,6 +78,7 @@ class Welcome extends CI_Controller {
 		$data['session'] = $this->session_model->sessionCheck();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
+		$this->load->view('fragments/scripts.php');
 		$this->load->view('sources.php');
 		$this->load->view('fragments/footer.php');
 	}
