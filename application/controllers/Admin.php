@@ -40,6 +40,7 @@
 			$this->load->view('fragments/header.php', $data);
 			$this->load->view('fragments/scripts.php');
 			$this->load->view('adminInstructors.php', $instructorData);
+			$this->load->view('process/ajax/addInstructorAjax.php');
 			$this->load->view('fragments/footer.php');
 		}
 
