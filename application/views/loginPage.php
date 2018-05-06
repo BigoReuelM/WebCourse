@@ -11,26 +11,33 @@
 				<div class="text-center">
 					<a href="<?php echo base_url('welcome/index') ?>"><img src="<?php echo base_url() ?>/public/assets/img/logo.png" alt=""></a>
 				</div>
-				
-				<form class="form-signin" action="<?php echo base_url('user/loginUser') ?>" method="POST">
-					<?php 
-						$error_msg = $this->session->flashdata('error_msg');
-
-						if ($error_msg) {
-							echo '<div class="alert alert-danger text-center">' .  $error_msg . '</div>';
-						}
-
-					?>
-					<div class="text-center">
+				<div class="panel form-signin">
+					<div class="panel-heading">
 						<h2 class="form-signin-heading">Sign In</h2>
 					</div>
-					<label for="inputEmail" class="sr-only">Email address</label>
-			        <input type="text" name="username" id="username" class="form-control" placeholder="Login ID">
-			        <label for="inputPassword" class="sr-only">Password</label>
-			        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password">
+					<div class="panel-body">
+						<form action="<?php echo base_url('user/loginUser') ?>" method="POST">
+						
+							<?php 
+								$error_msg = $this->session->flashdata('error_msg');
 
-			        <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Sign in</button>
-				</form>
+								if ($error_msg) {
+									echo '<div class="alert alert-danger text-center">' .  $error_msg . '</div>';
+								}
+
+							?>
+							<label for="inputEmail" class="sr-only">Email address</label>
+					        <input type="text" name="username" id="username" class="form-control" placeholder="Login ID">
+					        <label for="inputPassword" class="sr-only">Password</label>
+					        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password">
+
+					        <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Sign in</button>
+						</form>
+					</div>
+					<div class="panel-footer text-center">
+						<p>Welcome to WebCourse.com</p>
+					</div>
+				</div>
 			</div>
 		</section>
 	</body>
