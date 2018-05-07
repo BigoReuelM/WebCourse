@@ -86,7 +86,7 @@
 
 			$data = array('success' => false, 'messages' => array());
 
-			$this->form_validation->set_rules('topic', 'Topic', 'trim|required');
+			$this->form_validation->set_rules('topic', 'Topic', 'trim');
 			$this->form_validation->set_rules('title', 'Title', 'trim|required');
 			$this->form_validation->set_rules('heading', 'Heading', 'trim|required');
 			$this->form_validation->set_rules('body', 'Body', 'trim|required');
@@ -100,11 +100,16 @@
 				$heading = htmlspecialchars($this->input->post('heading'));
 				$body = htmlspecialchars($this->input->post('body'));
 				$sample = htmlspecialchars($this->input->post('sample'));
+
+				$this->user_model->insertNewLesson($idNumber, $topic, $title, $heading, $body, $sample);
 				
 				$data['success'] = true;
 			}else{
 				foreach ($_POST as $key => $value) {
 					$data['messages'][$key] = form_error($key);
+				}
+				if (!isset($_POST['topic'])) {
+					$data['messages']['topic'] = "<p class='text-danger'>The Topic field is required.</p>";
 				}
 			}
 

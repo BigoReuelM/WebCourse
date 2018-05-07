@@ -36,6 +36,21 @@
 			$this->db->insert('users', $data);
 
 		}
+
+		public function insertNewLesson($idNumber, $topic, $title, $heading, $body, $sample){
+
+			$data = array(
+				'instructor' => $idNumber,
+				'topic' => $topic,
+				'title' => $title,
+				'heading' => $heading,
+				'body' => $body,
+				'sample' => $sample
+			);
+
+			$this->db->insert('content', $data);
+
+		}
 	}
 
 ?>
