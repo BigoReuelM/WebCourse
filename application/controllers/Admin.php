@@ -30,6 +30,7 @@
 			$this->load->view('fragments/header.php',$data);
 			$this->load->view('fragments/scripts.php');
 			$this->load->view('lessons.php');
+			$this->load->view('process/ajax/addLessonAjax.php');
 			$this->load->view('fragments/footer.php');		
 		}
 
@@ -72,6 +73,35 @@
 				$this->user_model->insertNewInstructor($instructorIdNumber, $instructorFname, $instructorMname, $instructorLname);
 				$data['success'] = true;
 				//redirect('admin/loadInstructorsPage');
+			}else{
+				foreach ($_POST as $key => $value) {
+					$data['messages'][$key] = form_error($key);
+				}
+			}
+
+			echo json_encode($data);
+		}
+
+		public function addLesson(){
+
+			$data = array('success' => false, 'messages' => array());
+
+			$this->form_validation->set_rules('topic', 'Topic', 'trim|required');
+			$this->form_validation->set_rules('title', 'Title', 'trim|required');
+			$this->form_validation->set_rules('heading', 'Heading', 'trim|required');
+			$this->form_validation->set_rules('body', 'Body', 'trim|required');
+			$this->form_validation->set_rules('sample', 'Sample', 'trim|required');
+			$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+			if ($this->form_validation->run()) {
+				$idNumber = $this->session->userdata('userID');
+				$topic = htmlspecialchars($this->input->post('topic'));
+				$title = htmlspecialchars($this->input->post('title'));
+				$heading = htmlspecialchars($this->input->post('heading'));
+				$body = htmlspecialchars($this->input->post('body'));
+				$sample = htmlspecialchars($this->input->post('sample'));
+				
+				$data['success'] = true;
 			}else{
 				foreach ($_POST as $key => $value) {
 					$data['messages'][$key] = form_error($key);
