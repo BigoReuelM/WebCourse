@@ -12,7 +12,7 @@
                         </div>
                         <h3>Java Web Servlets and Java Server Pages (JSP)</h3>
                         <p>Java Servlets are programs that run on an Web Application server and act as a middle layer between a request coming from a Web browser or other HTTP client and databases or applications on the HTTP server.Servlets can be created using the javax.servlet and javax.servlet.http packages , which are a standard part of the Java's enterprise edition, an expanded version of the Java class library that supports large-scale development projects.</p>
-                        <a class="btn btn-rm btn-common" href="jspMainPage.php">Read More</a>
+                        <a class="btn btn-rm btn-common" href="<?php echo base_url('welcome/loadJSP') ?>">Read More</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -22,7 +22,7 @@
                         </div>
                         <h3>PHP</h3>
                         <p>PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages.PHP is a widely-used, free, and efficient alternative to competitors such as Microsoft's ASP.</p>
-                        <a class="btn btn-rm btn-common" href="phpMainPage.php">Read More</a>
+                        <a class="btn btn-rm btn-common" href="<?php echo base_url('welcome/loadPHP') ?>">Read More</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -32,7 +32,7 @@
                         </div>
                         <h3>Server-Side JavaScript (with Node.JS)</h3>
                         <p>Node.js is an open-source, cross-platform JavaScript run-time environment for executing JavaScript code server-side.Node is similar in design to, and influenced by, systems like Ruby's Event Machine or Python's Twisted. Node takes the event model a bit further. It presents an event loop as a runtime construct instead of as a library. In other systems there is always a blocking call to start the event-loop.</p>
-                        <a class="btn btn-rm btn-common" href="servletsMainPage.php">Read More</a>
+                        <a class="btn btn-rm btn-common" href="<?php echo base_url('welcome/loadNode') ?>">Read More</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -42,7 +42,7 @@
                         </div>
                         <h3>Web Application Security</h3>
                         <p>Web Security, also known as "Cyber security" involves protecting information by preventing, detecting, and responding to attacks.</p>
-                        <a class="btn btn-rm btn-common" href="webSecurityMainPage.php">Read More</a>
+                        <a class="btn btn-rm btn-common" href="<?php echo base_url('welcome/loadWebSecurity') ?>">Read More</a>
                     </div>
                 </div>
             </div>

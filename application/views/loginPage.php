@@ -12,7 +12,7 @@
 					<a href="<?php echo base_url('welcome/index') ?>"><img src="<?php echo base_url() ?>/public/assets/img/logo.png" alt=""></a>
 				</div>
 				<div class="panel form-signin">
-					<div class="panel-heading">
+					<div class="panel-heading text-center">
 						<h2 class="form-signin-heading">Sign In</h2>
 					</div>
 					<div class="panel-body">
