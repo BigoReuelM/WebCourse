@@ -26,10 +26,18 @@
 
 		public function loadLessonsPage(){
 			$data['session'] = $this->session_model->sessionCheck();
+			$data['topics'] = array(
+					"servlets",
+					"jsp",
+					"php",
+					"nodejs",
+					"websecurity"		
+			);	
+			$data['contents'] = $this->user_model->getContents();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
 			$this->load->view('fragments/scripts.php');
-			$this->load->view('lessons.php');
+			$this->load->view('lessons.php', $data);
 			$this->load->view('process/ajax/addLessonAjax.php');
 			$this->load->view('fragments/footer.php');		
 		}
@@ -115,5 +123,7 @@
 
 			echo json_encode($data);
 		}
+
+
 	}
 ?>

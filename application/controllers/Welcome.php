@@ -9,6 +9,7 @@ class Welcome extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->load->model('session_model');
+		$this->load->model('user_model');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
@@ -25,12 +26,15 @@ class Welcome extends CI_Controller {
 
 	public function loadServlets()
 	{
+		$data['servlets'] = $this->user_model->getTopicLessons("servlets");
 		$data['session'] = $this->session_model->sessionCheck();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
 		$this->load->view('servletsMainPage.php');
+		$this->load->view('process/ajax/displayLessonAjax.php');
 		$this->load->view('fragments/footer.php');
+		
 	}
 
 	public function loadJSP()
@@ -81,6 +85,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('fragments/scripts.php');
 		$this->load->view('sources.php');
 		$this->load->view('fragments/footer.php');
+	}
+
+	public function displayLesson(){
+		$contentID = $this->input->post('topicContent');
+		$data['contentData'] = $this->user_model->getLesson($contentID);
+		echo json_encode($data);
 	}
 
 }

@@ -4,7 +4,45 @@
 	    <div class="container">
 	    	<div class="row">
 	    		<div class="col-lg-3">
-	    			
+	    			<div class="well">
+				    	<form action="">
+				    		<?php foreach ($topics as $topic): ?>
+				    			<div class="row">
+				    				<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#<?php echo $topic ?>">
+				    					<?php  
+				    						if ($topic === "servlets") {
+				    							echo "Java Servlets";
+				    						}elseif ($topic === "jsp") {
+				    							echo "Java Server Pages";
+				    						}elseif ($topic === "php") {
+				    							echo "PHP";
+				    						}elseif ($topic === "nodejs") {
+				    							echo "Node.js";
+				    						}elseif ($topic === "websecurity") {
+				    							echo "Web Application Security";
+				    						}
+				    					?>
+				    				</button>
+				    				<div id="<?php echo $topic ?>" class="collapse">
+				    					<ul>
+				    						<?php
+
+				    							foreach ($contents as $content) {
+				    								if ($topic === $content['topic']) {
+				    						?>
+				    							<li>
+				    								<button type="submit" name="topicContent" value="<?php echo $content['contentID'] ?>" class="btn btn-block btn-info"><?php echo $content['title'] ?></button>
+				    							</li>
+				    						<?php			
+				    								}
+				    							}
+				    						?>
+				    					</ul>
+				    				</div>
+				    			</div>
+				    		<?php endforeach ?>
+				    	</form>
+	    			</div>
 	    		</div>
 	    		<div class="col-lg-9">
 	    			<div class="panel form-horizontal well">

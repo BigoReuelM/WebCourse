@@ -51,6 +51,35 @@
 			$this->db->insert('content', $data);
 
 		}
+
+		public function getContents(){
+			$this->db->select('contentID, topic, title');
+			$this->db->from('content');
+
+			$query = $this->db->get();
+
+			return $query->result_array();
+		}
+
+		public function getTopicLessons($topic){
+			$this->db->select('*');
+			$this->db->from('content');
+			$this->db->where('topic', $topic);
+
+			$query = $this->db->get();
+
+			return $query->result_array();
+		}
+
+		public function getLesson($contentID){
+			$this->db->select('*');
+			$this->db->from('content');
+			$this->db->where('contentID', $contentID);
+
+			$query = $this->db->get();
+
+			return $query->result_array();
+		}
 	}
 
 ?>
