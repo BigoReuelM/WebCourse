@@ -12,23 +12,11 @@
             data: lessonDetails.serialize(),
             success: function(response){
                 if (response.success == true) {
-                    // if success we would show message
-                    // and also remove the error class
-                    $('#the-message').append('<div class="alert alert-success text-center">' +
-                    '<span class="glyphicon glyphicon-ok"></span>' +
-                    ' New client has been saved.' +
-                    '</div>');
-                    $('.form-group').removeClass('has-error')
-                          .removeClass('has-success');
-                    $('.text-danger').remove();
-                    // reset the form
+                    
                     lessonDetails[0].reset();
-                    // close the message after seconds
-                    $('.alert-success').delay(500).show(10, function() {
-                     $(this).delay(3000).hide(10, function() {
-                        $(this).remove();
-                      });
-                    })
+                    
+                    alert("New Lesson Added");
+
                 }else{
                     $.each(response.messages, function(key, value) {
                       var element = $('#' + key);
