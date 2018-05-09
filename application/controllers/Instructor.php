@@ -19,15 +19,6 @@ class Instructor extends CI_Controller
 		$this->load->library('form_validation');
 	}
 
-	public function loadReports(){
-		$data['session'] = $this->session_model->sessionCheck();
-		$this->load->view('fragments/head.php');
-		$this->load->view('fragments/header.php',$data);
-		$this->load->view('fragments/scripts.php');
-		$this->load->view('instructorReports.php');
-		$this->load->view('fragments/footer.php');
-	}
-
 	public function loadRecords(){
 		$data['session'] = $this->session_model->sessionCheck();
 		$this->load->view('fragments/head.php');

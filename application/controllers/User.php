@@ -61,5 +61,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->session->sess_destroy();
 			redirect('welcome/index', 'refresh');
 		}
+
+		public function userProfile(){
+			$data['session'] = $this->session_model->sessionCheck();
+			$this->load->view('fragments/head.php');
+			$this->load->view('fragments/header.php',$data);
+			$this->load->view('fragments/scripts.php');
+			$this->load->view('userProfile.php');
+			$this->load->view('fragments/footer.php');
+		}
 	}
 ?>

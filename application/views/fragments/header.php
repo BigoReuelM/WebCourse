@@ -15,7 +15,7 @@
               <span class="text-muted">Student</span>
             <?php endif ?>
             <?php if ($session['userLogedin']): ?>
-              <span><?php echo $session['userName'] ?></span>
+              <span><a href="<?php echo base_url('user/userProfile') ?>"><?php echo $session['userName'] ?></a></span>
               <span><a href="<?php echo base_url('user/logoutUser') ?>"><i class="fa fa-user"></i> Logout</a></span>
             <?php endif ?>
             <?php if (!$session['userLogedin']): ?>
@@ -71,7 +71,6 @@
                 <?php endif ?>
                 <?php if ($session['userRole'] === "instructor"): ?>
                   <li><a href="<?php echo base_url('instructor/loadRecords') ?>">Records</i></a></li>
-                  <li><a href="<?php echo base_url('instructor/loadReports') ?>">Reports</a></li>
                   <li><a href="<?php echo base_url('instructor/loadLessonsPage') ?>">Lessons</a></li>
                   <li><a href="<?php echo base_url('instructor/loadActivitiesPage') ?>">Manage Activities</a></li>
                 <?php endif ?>
