@@ -78,7 +78,7 @@
 
 			$query = $this->db->get();
 
-			return $query->result_array();
+			return $query->row_array();
 		}
 	}
 

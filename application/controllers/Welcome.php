@@ -26,13 +26,19 @@ class Welcome extends CI_Controller {
 
 	public function loadServlets()
 	{
-		$data['servlets'] = $this->user_model->getTopicLessons("servlets");
 		$data['session'] = $this->session_model->sessionCheck();
+		$data['servlets'] = $this->user_model->getTopicLessons("servlets");
+		$data['lessonData'] = array();
+		$contentID = $this->session->userdata('contentID');
+		if (!($contentID === "default")) {
+			
+			$data['lessonData'] = $this->user_model->getLesson($contentID);
+		}
+
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
 		$this->load->view('servletsMainPage.php');
-		$this->load->view('process/ajax/displayLessonAjax.php');
 		$this->load->view('fragments/footer.php');
 		
 	}
@@ -87,10 +93,17 @@ class Welcome extends CI_Controller {
 		$this->load->view('fragments/footer.php');
 	}
 
-	public function displayLesson(){
-		$contentID = $this->input->post('topicContent');
-		$data['contentData'] = $this->user_model->getLesson($contentID);
-		echo json_encode($data);
+	public function setLessonID(){
+
+		if (isset($_POST['topicContent'])) {
+			$contentID = $this->input->post('topicContent');
+			$this->session->set_userdata('contentID', $contentID);
+		}else{
+			$this->session->set_userdata('contentID', "default");
+		}
+
+		redirect('welcome/loadServlets');
+
 	}
 
 }
