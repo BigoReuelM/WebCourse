@@ -28,11 +28,18 @@ class Welcome extends CI_Controller {
 	{
 		$data['session'] = $this->session_model->sessionCheck();
 		$data['servlets'] = $this->user_model->getTopicLessons("servlets");
-		$data['lessonData'] = array();
-		$contentID = $this->session->userdata('contentID');
-		if (!($contentID === "default")) {
-			
-			$data['lessonData'] = $this->user_model->getLesson($contentID);
+		
+		
+		if (isset($_SESSION['contentID'])) {
+			if ($_SESSION['contentID'] === "default") {
+
+				$data['lessonData'] = array();
+
+			}else{
+
+				$contentID = $this->session->userdata('contentID');	
+				$data['lessonData'] = $this->user_model->getLesson($contentID);
+			}
 		}
 
 		$this->load->view('fragments/head.php');
