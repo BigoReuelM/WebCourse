@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>/public/assets/css/responsive.css">
     <!-- Color CSS Styles  -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/public/assets/css/colors/sky.css" media="screen" />
+    <link rel="stylesheet" href="<?php echo base_url() ?>/public/assets/css/dataTables.bootstrap.css" type="text/css">
   </head>
   <body>
       

@@ -70,10 +70,16 @@
                   </li>
                 <?php endif ?>
                 <?php if ($session['userRole'] === "instructor"): ?>
-                  <li><a href="<?php echo base_url('instructor/loadRecords') ?>">Records</i></a></li>
-                  <li><a href="<?php echo base_url('instructor/loadLessonsPage') ?>">Lessons</a></li>
-                  <li><a href="<?php echo base_url('instructor/loadActivitiesPage') ?>">Manage Activities</a></li>
+                  <li class="dropdown dropdown-toggle">
+                  <a href="#" data-toggle="dropdown">Manage<i class="fa fa-angle-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="<?php echo base_url('instructor/loadRecords') ?>">Records</a></li>    
+                    <li><a href="<?php echo base_url('instructor/loadLessonsPage') ?>">Lessons</a></li> 
+                    <li><a href="<?php echo base_url('instructor/loadActivitiesPage') ?>">Activities</a></li>
+                  </ul>                        
+                </li>
                 <?php endif ?>
+                
                 <?php if ($session['userRole'] === "student"): ?>
                   <li><a href="studentActivities.php">Activities</i></a></li>
                   <li><a href="studentLessonsAnnouncements.php">Announcements</a></li>
