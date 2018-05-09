@@ -6,8 +6,8 @@
             <div class="row">
 	    		<div class="col-lg-3">
 	    			<div class="well">
-	    				<a class="btn btn-block btn-success" href="<?php echo base_url('welcome/setLessonID') ?>">Servlets</a>				    	
-						<form method="POST" action="<?php echo base_url('welcome/setLessonID') ?>">
+	    				<a class="btn btn-block btn-success" href="<?php echo base_url('welcome/setServletLessonID') ?>">Servlets</a>				    	
+						<form method="POST" action="<?php echo base_url('welcome/setServletLessonID') ?>">
 							<?php
 								foreach ($servlets as $servlet) {		
 							?>

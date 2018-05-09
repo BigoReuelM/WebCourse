@@ -27,7 +27,8 @@ class Welcome extends CI_Controller {
 	public function loadServlets()
 	{
 		$data['session'] = $this->session_model->sessionCheck();
-		$data['servlets'] = $this->user_model->getTopicLessons("servlets");
+		$topicName = "servlets";
+		$data['servlets'] = $this->user_model->getTopicLessons($topicName);
 		
 		
 		if (isset($_SESSION['contentID'])) {
@@ -53,6 +54,21 @@ class Welcome extends CI_Controller {
 	public function loadJSP()
 	{
 		$data['session'] = $this->session_model->sessionCheck();
+		$topicName = "jsp";
+		$data['jsps'] = $this->user_model->getTopicLessons($topicName);
+		
+		
+		if (isset($_SESSION['contentID'])) {
+			if ($_SESSION['contentID'] === "default") {
+
+				$data['lessonData'] = array();
+
+			}else{
+
+				$contentID = $this->session->userdata('contentID');	
+				$data['lessonData'] = $this->user_model->getLesson($contentID);
+			}
+		}
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
@@ -63,6 +79,21 @@ class Welcome extends CI_Controller {
 	public function loadNode()
 	{
 		$data['session'] = $this->session_model->sessionCheck();
+		$topicName = "nodejs";
+		$data['nodes'] = $this->user_model->getTopicLessons($topicName);
+		
+		
+		if (isset($_SESSION['contentID'])) {
+			if ($_SESSION['contentID'] === "default") {
+
+				$data['lessonData'] = array();
+
+			}else{
+
+				$contentID = $this->session->userdata('contentID');	
+				$data['lessonData'] = $this->user_model->getLesson($contentID);
+			}
+		}
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
@@ -73,6 +104,21 @@ class Welcome extends CI_Controller {
 	public function loadPHP()
 	{
 		$data['session'] = $this->session_model->sessionCheck();
+		$topicName = "php";
+		$data['phps'] = $this->user_model->getTopicLessons($topicName);
+		
+		
+		if (isset($_SESSION['contentID'])) {
+			if ($_SESSION['contentID'] === "default") {
+
+				$data['lessonData'] = array();
+
+			}else{
+
+				$contentID = $this->session->userdata('contentID');	
+				$data['lessonData'] = $this->user_model->getLesson($contentID);
+			}
+		}
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
@@ -83,6 +129,21 @@ class Welcome extends CI_Controller {
 	public function loadWebSecurity()
 	{
 		$data['session'] = $this->session_model->sessionCheck();
+		$topicName = "websecurity";
+		$data['waps'] = $this->user_model->getTopicLessons($topicName);
+		
+		
+		if (isset($_SESSION['contentID'])) {
+			if ($_SESSION['contentID'] === "default") {
+
+				$data['lessonData'] = array();
+
+			}else{
+
+				$contentID = $this->session->userdata('contentID');	
+				$data['lessonData'] = $this->user_model->getLesson($contentID);
+			}
+		}
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
@@ -100,7 +161,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('fragments/footer.php');
 	}
 
-	public function setLessonID(){
+	public function setServletLessonID(){
 
 		if (isset($_POST['topicContent'])) {
 			$contentID = $this->input->post('topicContent');
@@ -112,5 +173,58 @@ class Welcome extends CI_Controller {
 		redirect('welcome/loadServlets');
 
 	}
+
+	public function setJSPLessonID(){
+
+		if (isset($_POST['topicContent'])) {
+			$contentID = $this->input->post('topicContent');
+			$this->session->set_userdata('contentID', $contentID);
+		}else{
+			$this->session->set_userdata('contentID', "default");
+		}
+
+		redirect('welcome/loadJSP');
+
+	}
+
+	public function setPHPLessonID(){
+
+		if (isset($_POST['topicContent'])) {
+			$contentID = $this->input->post('topicContent');
+			$this->session->set_userdata('contentID', $contentID);
+		}else{
+			$this->session->set_userdata('contentID', "default");
+		}
+
+		redirect('welcome/loadPHP');
+
+	}
+
+	public function setNodejsLessonID(){
+
+		if (isset($_POST['topicContent'])) {
+			$contentID = $this->input->post('topicContent');
+			$this->session->set_userdata('contentID', $contentID);
+		}else{
+			$this->session->set_userdata('contentID', "default");
+		}
+
+		redirect('welcome/loadNode');
+
+	}
+
+	public function setWebSecurityLessonID(){
+
+		if (isset($_POST['topicContent'])) {
+			$contentID = $this->input->post('topicContent');
+			$this->session->set_userdata('contentID', $contentID);
+		}else{
+			$this->session->set_userdata('contentID', "default");
+		}
+
+		redirect('welcome/loadWebSecurity');
+
+	}
+
 
 }
