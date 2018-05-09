@@ -47,7 +47,7 @@
 	    		<div class="col-lg-9">
 	    			<div class="panel form-horizontal well">
 			            <div class="panel-body">
-			            	<form method="POST" action="<?php echo base_url('admin/addLesson') ?>" id="addLessonForm" autocomplete="off">
+			            	<form method="POST" action="<?php echo base_url('instructor/addLesson') ?>" id="addLessonForm" autocomplete="off">
 			            		<div class="form-group">
 			            			<label for="topic" class="col-lg-2 control-label">Select Topic:</label>
 									<div class="col-lg-10">

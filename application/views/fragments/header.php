@@ -65,15 +65,15 @@
                     <ul class="dropdown-menu">
                       <li><a href="<?php echo base_url('admin/loadInstructorsPage') ?>">Add Instructors</a></li>
                       <li><a href="<?php echo base_url('admin/loadStudentsPage') ?>">Add Students</a></li>
-                      <li><a href="<?php echo base_url('admin/loadActivitiesPage') ?>">Manage Activities</a></li>
-                      
+                      <li><a href="<?php echo base_url('admin/loadAnnouncementPage') ?>">Add Announcements</a></li>
                     </ul>
                   </li>
                 <?php endif ?>
                 <?php if ($session['userRole'] === "instructor"): ?>
-                  <li><a href="instructorRecords.php">Records</i></a></li>
-                  <li><a href="instructorReports.php">Reports</a></li>
-                  <li><a href="<?php echo base_url('admin/loadLessonsPage') ?>">Lessons</a></li>
+                  <li><a href="<?php echo base_url('instructor/loadRecords') ?>">Records</i></a></li>
+                  <li><a href="<?php echo base_url('instructor/loadReports') ?>">Reports</a></li>
+                  <li><a href="<?php echo base_url('instructor/loadLessonsPage') ?>">Lessons</a></li>
+                  <li><a href="<?php echo base_url('instructor/loadActivitiesPage') ?>">Manage Activities</a></li>
                 <?php endif ?>
                 <?php if ($session['userRole'] === "student"): ?>
                   <li><a href="studentActivities.php">Activities</i></a></li>
