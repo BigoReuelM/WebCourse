@@ -52,8 +52,8 @@
                 <li class="dropdown dropdown-toggle">
                   <a href="#" data-toggle="dropdown">Topics<i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu">
-                    <li><a href="<?php echo base_url('welcome/loadServlets') ?>">Java Web Servlets</a></li>    
-                    <li><a href="<?php echo base_url('welcome/loadJSP') ?>">Java Server Pages (JSP)</a></li>  
+                    <li><a href="<?php echo base_url('welcome/setServletLessonID') ?>">Java Web Servlets</a></li>    
+                    <li><a href="<?php echo base_url('welcome/setJSPLessonID') ?>">Java Server Pages (JSP)</a></li>  
                     <li><a href="<?php echo base_url('welcome/loadPHP') ?>">PHP</a></li>
                     <li><a href="<?php echo base_url('welcome/loadNode') ?>">Node.js</a></li>  
                     <li><a href="<?php echo base_url('welcome/loadWebSecurity') ?>">Web Application Security</a></li> 
