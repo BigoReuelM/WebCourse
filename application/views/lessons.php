@@ -31,7 +31,7 @@
 				    								if ($topic === $content['topic']) {
 				    						?>
 				    							<li>
-				    								<button type="submit" name="topicContent" value="<?php echo $content['contentID'] ?>" class="btn btn-block btn-info"><?php echo $content['title'] ?></button>
+				    								<button type="button" id="topicContent" data-toggle="modal" data-target="#deleteLesson" value="<?php echo $content['contentID'] ?>" class="btn btn-block btn-info"><?php echo $content['title'] ?></button>
 				    							</li>
 				    						<?php			
 				    								}
@@ -98,4 +98,26 @@
 	    </div>
     </section>
     <!-- Courses Section End -->
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteLesson">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Delete</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
