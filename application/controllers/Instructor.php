@@ -90,5 +90,14 @@ class Instructor extends CI_Controller
 
 		echo json_encode($data);
 	}
+
+	public function deleteLesson(){
+		$lessonID = $this->input->post('lessonDelete');
+
+		$this->user_model->deleteLesson($lessonID);
+
+		redirect('instructor/loadLessonsPage');
+
+	}
 }
 ?>

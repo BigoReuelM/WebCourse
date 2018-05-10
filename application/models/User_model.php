@@ -46,6 +46,24 @@
 
 		}
 
+		public function insertNewStudent($studentID, $fname, $mname, $lname, $course, $year){
+			$hashPass = password_hash("password", PASSWORD_BCRYPT);
+			$data = array(
+				'idNumber' => $studentID,
+				'firstName' => $fname,
+				'middleName' => $mname,
+				'lastName' => $lname,
+				'userType' => 'student',
+				'password' => $hashPass,
+				'status' => 'active',
+				'course' => $course,
+				'year' => $year
+			);
+
+			$this->db->insert('users', $data);
+
+		}
+
 		public function insertNewLesson($idNumber, $topic, $title, $heading, $body, $sample){
 
 			$data = array(
@@ -118,6 +136,11 @@
 
 			$this->db->where('userID', $userID);
 			$this->db->update('users', $data);
+		}
+
+		public function deleteLesson($lessonID){
+			$this->db->where('contentID', $lessonID);
+			$this->db->delete('content');
 		}
 
 	}

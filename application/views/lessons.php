@@ -5,7 +5,7 @@
 	    	<div class="row">
 	    		<div class="col-lg-3">
 	    			<div class="well">
-				    	<form action="">
+				    	<form method="POST" action="<?php echo base_url('instructor/deleteLesson') ?>">
 				    		<?php foreach ($topics as $topic): ?>
 				    			<div class="row">
 				    				<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#<?php echo $topic ?>">
@@ -25,18 +25,18 @@
 				    				</button>
 				    				<div id="<?php echo $topic ?>" class="collapse">
 				    					<ul>
-				    						<?php
+					    						<?php
 
-				    							foreach ($contents as $content) {
-				    								if ($topic === $content['topic']) {
-				    						?>
-				    							<li>
-				    								<button type="button" id="topicContent" data-toggle="modal" data-target="#deleteLesson" value="<?php echo $content['contentID'] . ',' . $content['title'] ?>" class="btn btn-block btn-info lessonDeleteButton"><?php echo $content['title'] ?></button>
-				    							</li>
-				    						<?php			
-				    								}
-				    							}
-				    						?>
+					    							foreach ($contents as $content) {
+					    								if ($topic === $content['topic']) {
+					    						?>
+					    							<li>
+					    								<button type="submit" name="lessonDelete" value="<?php echo $content['contentID'] ?>" class="btn btn-block btn-info"><?php echo $content['title'] ?></button>
+					    							</li>
+					    						<?php			
+					    								}
+					    							}
+					    						?>
 				    					</ul>
 				    				</div>
 				    			</div>
@@ -98,31 +98,4 @@
 	    </div>
     </section>
     <!-- Courses Section End -->
-
-
-
-<div class="modal" tabindex="-1" role="dialog" id="deleteLesson">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p id="lessonNameModal"></p>
-
-      </div>
-      <div class="modal-footer">
-      	<form action="" method="POST">
-      		<input type="text" name="lessonID" id="lessonID" hidden>
-      		<button type="submit" class="btn btn-primary">Delete</button>
-      		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>	
-      	</form>
-     
-      </div>
-    </div>
-  </div>
-</div>
 

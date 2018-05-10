@@ -32,6 +32,7 @@
 			$this->load->view('fragments/header.php',$data);
 			$this->load->view('fragments/scripts.php');
 			$this->load->view('adminStudents.php');
+			$this->load->view('process/ajax/addStudentAjax.php');
 			$this->load->view('fragments/footer.php');
 		}
 
@@ -62,7 +63,37 @@
 				$instructorLname = ucwords(htmlspecialchars($this->input->post('instructorLname')));
 				$this->user_model->insertNewInstructor($instructorIdNumber, $instructorFname, $instructorMname, $instructorLname);
 				$data['success'] = true;
-				//redirect('admin/loadInstructorsPage');
+			}else{
+				foreach ($_POST as $key => $value) {
+					$data['messages'][$key] = form_error($key);
+				}
+			}
+
+			echo json_encode($data);
+		}
+
+		public function addStudent(){
+
+			$data = array('success' => false, 'messages' => array());
+
+			$this->form_validation->set_rules('idNumber', 'ID Number', 'trim|required|is_unique[users.idNumber]');
+			$this->form_validation->set_message('is_unique', 'This ID number allready exist.');
+			$this->form_validation->set_rules('firstName', 'First Name', 'trim|required');
+			$this->form_validation->set_rules('middleName', 'Middle Name', 'trim|required');
+			$this->form_validation->set_rules('lastName', 'Last Name', 'trim|required');
+			$this->form_validation->set_rules('course', 'Course', 'trim|required');
+			$this->form_validation->set_rules('year', 'Year', 'trim|required');
+			$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+			if ($this->form_validation->run()) {
+				$idNumber = htmlspecialchars($this->input->post('idNumber'));
+				$firstName = ucwords( htmlspecialchars($this->input->post('firstName')));
+				$middleName = ucwords(htmlspecialchars($this->input->post('middleName')));
+				$lastName = ucwords(htmlspecialchars($this->input->post('lastName')));
+				$course = ucwords(htmlspecialchars($this->input->post('course')));
+				$year = ucwords(htmlspecialchars($this->input->post('year')));
+				$this->user_model->insertNewStudent($idNumber, $firstName, $middleName, $lastName, $course, $year);
+				$data['success'] = true;
 			}else{
 				foreach ($_POST as $key => $value) {
 					$data['messages'][$key] = form_error($key);
