@@ -28,10 +28,11 @@
 
 		public function loadStudentsPage(){
 			$data['session'] = $this->session_model->sessionCheck();
+			$studentData['students'] = $this->user_model->getStudents();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
 			$this->load->view('fragments/scripts.php');
-			$this->load->view('adminStudents.php');
+			$this->load->view('adminStudents.php', $studentData);
 			$this->load->view('process/ajax/addStudentAjax.php');
 			$this->load->view('fragments/footer.php');
 		}

@@ -30,6 +30,14 @@
 			return $query->result_array();
 		}
 
+		public function getStudents(){
+			$this->db->select('*');
+			$this->db->from('users');
+			$this->db->where('userType', 'student');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
 		public function insertNewInstructor($instructorID, $fname, $mname, $lname){
 			$hashPass = password_hash("password", PASSWORD_BCRYPT);
 			$data = array(

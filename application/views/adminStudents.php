@@ -36,11 +36,13 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <?php foreach ($students as $student): ?>
+                                                <td><?php echo $student['firstName'] ?></td>
+                                                <td><?php echo $student['middleName'] ?></td>
+                                                <td><?php echo $student['lastName'] ?></td>
+                                                <td><?php echo $student['course'] ?></td>
+                                                <td><?php echo $student['year'] ?></td>
+                                            <?php endforeach ?>
                                         </tr>
                                     </tbody>
                                 </table>
