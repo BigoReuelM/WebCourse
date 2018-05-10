@@ -53,6 +53,7 @@ class Instructor extends CI_Controller
 		$this->load->view('fragments/scripts.php');
 		$this->load->view('lessons.php', $data);
 		$this->load->view('process/ajax/addLessonAjax.php');
+		$this->load->view('process/ajax/deleteLesson.php');
 		$this->load->view('fragments/footer.php');		
 	}
 	

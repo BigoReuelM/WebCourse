@@ -31,7 +31,7 @@
 				    								if ($topic === $content['topic']) {
 				    						?>
 				    							<li>
-				    								<button type="button" id="topicContent" data-toggle="modal" data-target="#deleteLesson" value="<?php echo $content['contentID'] ?>" class="btn btn-block btn-info"><?php echo $content['title'] ?></button>
+				    								<button type="button" id="topicContent" data-toggle="modal" data-target="#deleteLesson" value="<?php echo $content['contentID'] . ',' . $content['title'] ?>" class="btn btn-block btn-info lessonDeleteButton"><?php echo $content['title'] ?></button>
 				    							</li>
 				    						<?php			
 				    								}
@@ -111,11 +111,16 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <p id="lessonNameModal"></p>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Delete</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      	<form action="" method="POST">
+      		<input type="text" name="lessonID" id="lessonID" hidden>
+      		<button type="submit" class="btn btn-primary">Delete</button>
+      		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>	
+      	</form>
+     
       </div>
     </div>
   </div>
