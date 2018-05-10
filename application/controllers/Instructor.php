@@ -64,7 +64,7 @@ class Instructor extends CI_Controller
 		$this->form_validation->set_rules('title', 'Title', 'trim|required');
 		$this->form_validation->set_rules('heading', 'Heading', 'trim|required');
 		$this->form_validation->set_rules('body', 'Body', 'trim|required');
-		$this->form_validation->set_rules('sample', 'Sample', 'trim|required');
+		$this->form_validation->set_rules('sample', 'Sample', 'trim');
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
 		if ($this->form_validation->run()) {
