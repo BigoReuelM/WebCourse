@@ -9,9 +9,17 @@
 			$this->db->select('*');
 			$this->db->from('users');
 			$this->db->where('idNumber', $loginID);
-			$this->db->where('password', $password);
-			$query = $this->db->get();
-			return $query->row_array();
+			
+			if ($query = $this->db->get()) {
+				$userData = $query->row_array();
+				if (password_verify($password, $userData['password'])) {
+					return $query->row_array();
+				}else{
+					return false;
+				}
+			}else{
+				return false;
+			}
 		}
 
 		public function getInstructors(){
@@ -23,14 +31,15 @@
 		}
 
 		public function insertNewInstructor($instructorID, $fname, $mname, $lname){
-
+			$hashPass = password_hash("password", PASSWORD_BCRYPT);
 			$data = array(
 				'idNumber' => $instructorID,
 				'firstName' => $fname,
 				'middleName' => $mname,
 				'lastName' => $lname,
 				'userType' => 'instructor',
-				'password' => 'password'
+				'password' => $hashPass,
+				'status' => 'active'
 			);
 
 			$this->db->insert('users', $data);
@@ -79,6 +88,36 @@
 			$query = $this->db->get();
 
 			return $query->row_array();
+		}
+
+		public function getUserDetails(){
+			$this->db->select('*');
+			$this->db->from('users');
+			$this->db->where('userID', $this->session->userData('userID'));
+
+			$query = $this->db->get();
+
+			return $query->row();
+		}
+
+		public function getPassword($userID){
+			$this->db->select('password');
+			$this->db->from('users');
+			$this->db->where('userID', $userID);
+
+			$query = $this->db->get();
+
+			return $query->row();
+		}
+
+		public function updateUserPassword($userID, $newPass){
+			$hashPass = password_hash($newPass, PASSWORD_BCRYPT);
+			$data = array(
+				'password' => $hashPass
+			);
+
+			$this->db->where('userID', $userID);
+			$this->db->update('users', $data);
 		}
 
 	}

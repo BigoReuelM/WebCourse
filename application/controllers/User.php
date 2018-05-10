@@ -62,13 +62,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			redirect('welcome/index', 'refresh');
 		}
 
-		public function userProfile(){
+		public function userSetting(){
 			$data['session'] = $this->session_model->sessionCheck();
+			$data['userDetails'] = $this->user_model->getUserDetails();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
 			$this->load->view('fragments/scripts.php');
-			$this->load->view('userProfile.php');
+			$this->load->view('userSetting.php');
+			$this->load->view('process/ajax/changePassAjax.php');
 			$this->load->view('fragments/footer.php');
+		}
+
+		public function passwordChange(){
+			$userID = $this->session->userdata('userID');
+			$data = array('success' => false, 'messages' => array());
+
+			$this->form_validation->set_rules('currentPassword', 'Current Password', 'trim|required|callback_password_matches[' . $userID . ']');
+			$this->form_validation->set_rules('newPassword', 'New Password', 'trim|required|min_length[8]');
+			$this->form_validation->set_rules('passwordConfirmation', 'Password Confirmation', 'trim|required|matches[newPassword]');
+			$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+			if ($this->form_validation->run()) {
+
+				$newPassword = html_escape($this->input->post('newPassword'));
+				$this->user_model->updateUserPassword($userID, $newPassword);
+				$data['success'] = true;
+				
+			}else{
+				foreach ($_POST as $key => $value) {
+					$data['messages'][$key] = form_error($key);
+				}
+			}
+
+			echo json_encode($data);
+		}
+
+		public function password_matches($pass, $userID){
+			
+			$password = $this->user_model->getPassword($userID);
+
+			if (!password_verify($pass, $password->password)){
+				$this->form_validation->set_message('password_matches', 'The password you supplied does not match your existing password. ');
+				return FALSE;
+			}
+
+			return TRUE;
 		}
 	}
 ?>

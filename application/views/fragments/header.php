@@ -15,7 +15,7 @@
               <span class="text-muted">Student</span>
             <?php endif ?>
             <?php if ($session['userLogedin']): ?>
-              <span><a href="<?php echo base_url('user/userProfile') ?>"><?php echo $session['userName'] ?></a></span>
+              <span><a href="<?php echo base_url('user/userSetting') ?>"><?php echo $session['userName'] ?></a></span>
               <span><a href="<?php echo base_url('user/logoutUser') ?>"><i class="fa fa-user"></i> Logout</a></span>
             <?php endif ?>
             <?php if (!$session['userLogedin']): ?>
@@ -54,9 +54,9 @@
                   <ul class="dropdown-menu">
                     <li><a href="<?php echo base_url('welcome/setServletLessonID') ?>">Java Web Servlets</a></li>    
                     <li><a href="<?php echo base_url('welcome/setJSPLessonID') ?>">Java Server Pages (JSP)</a></li>  
-                    <li><a href="<?php echo base_url('welcome/loadPHP') ?>">PHP</a></li>
-                    <li><a href="<?php echo base_url('welcome/loadNode') ?>">Node.js</a></li>  
-                    <li><a href="<?php echo base_url('welcome/loadWebSecurity') ?>">Web Application Security</a></li> 
+                    <li><a href="<?php echo base_url('welcome/setPHPLessonID') ?>">PHP</a></li>
+                    <li><a href="<?php echo base_url('welcome/setNodejsLessonID') ?>">Node.js</a></li>  
+                    <li><a href="<?php echo base_url('welcome/setWebSecurityLessonID') ?>">Web Application Security</a></li> 
                   </ul>                        
                 </li>
                 <?php if ($session['userRole'] === "admin"): ?>

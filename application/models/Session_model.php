@@ -19,5 +19,12 @@
 				return $data;
 			}
 		}
+
+		public function sessionTopicCheck()
+		{
+			if (!isset($_SESSION['contentID'])) {
+				redirect('welcome');
+			}
+		}
 	}
 ?> 

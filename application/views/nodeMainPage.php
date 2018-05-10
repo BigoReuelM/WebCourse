@@ -6,7 +6,7 @@
             <div class="row">
 	    		<div class="col-lg-3">
 	    			<div class="well">
-	    				<a class="btn btn-block btn-success" href="<?php echo base_url('welcome/setNodejsLessonID') ?>">PHP</a>				    	
+	    				<a class="btn btn-block btn-success" href="<?php echo base_url('welcome/setNodejsLessonID') ?>">Node.js</a>				    	
 						<form method="POST" action="<?php echo base_url('welcome/setNodejsLessonID') ?>">
 							<?php
 								foreach ($nodes as $node) {		

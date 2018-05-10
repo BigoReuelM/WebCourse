@@ -26,6 +26,7 @@ class Welcome extends CI_Controller {
 
 	public function loadServlets()
 	{
+		$this->session_model->sessionTopicCheck();
 		$data['session'] = $this->session_model->sessionCheck();
 		$topicName = "servlets";
 		$data['servlets'] = $this->user_model->getTopicLessons($topicName);
@@ -53,6 +54,7 @@ class Welcome extends CI_Controller {
 
 	public function loadJSP()
 	{
+		$this->session_model->sessionTopicCheck();
 		$data['session'] = $this->session_model->sessionCheck();
 		$topicName = "jsp";
 		$data['jsps'] = $this->user_model->getTopicLessons($topicName);
@@ -78,6 +80,7 @@ class Welcome extends CI_Controller {
 
 	public function loadNode()
 	{
+		$this->session_model->sessionTopicCheck();
 		$data['session'] = $this->session_model->sessionCheck();
 		$topicName = "nodejs";
 		$data['nodes'] = $this->user_model->getTopicLessons($topicName);
@@ -103,6 +106,7 @@ class Welcome extends CI_Controller {
 
 	public function loadPHP()
 	{
+		$this->session_model->sessionTopicCheck();
 		$data['session'] = $this->session_model->sessionCheck();
 		$topicName = "php";
 		$data['phps'] = $this->user_model->getTopicLessons($topicName);
@@ -128,6 +132,7 @@ class Welcome extends CI_Controller {
 
 	public function loadWebSecurity()
 	{
+		$this->session_model->sessionTopicCheck();
 		$data['session'] = $this->session_model->sessionCheck();
 		$topicName = "websecurity";
 		$data['waps'] = $this->user_model->getTopicLessons($topicName);
