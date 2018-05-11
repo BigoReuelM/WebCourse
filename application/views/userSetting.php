@@ -17,12 +17,14 @@
             				<p>First Name:</p>
             				<p>Middle Name:</p>
             				<p>Last Name:</p>
+            				<p>Course & Year:</p>
             			</div>
             			<div class="col-lg-6">
             				<p> <?php echo $userDetails->firstName ?></p>
 		            		<p> <?php echo $userDetails->middleName ?></p>
 		            		<p> <?php echo $userDetails->lastName ?></p>
-		            	</div>
+		            		<p> <?php echo $userDetails->course . $userDetails->year ?></p>	
+            			</div>
             		</div>
             	</div>
             	<div class="panel-footer">

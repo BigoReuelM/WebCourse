@@ -2,6 +2,7 @@
     <section class="activity-area section">
 
         <!-- Main Container -->
+    <div id="page-content-wrapper">
         <div class="container">
             <div class="row">
                 <h1 align="center">Add Student</h1>
@@ -25,22 +26,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                                <?php foreach ($students as $student): ?>
-                                    <tr>
+                                <tr>
+                                    <?php foreach ($students as $student): ?>
                                         <td><?php echo $student['firstName'] ?></td>
                                         <td><?php echo $student['middleName'] ?></td>
                                         <td><?php echo $student['lastName'] ?></td>
                                         <td><?php echo $student['course'] ?></td>
                                         <td><?php echo $student['year'] ?></td>
-                                    </tr>
-                                <?php endforeach ?>
-                                
+                                    <?php endforeach ?>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
         </div>
+    </div>
 </section>
                 <!-- Modal -->
                 <div id="myModal" class="modal fade" role="dialog">
@@ -90,17 +90,6 @@
                                         <label for="year" class="col-lg-3 control-label">Year:</label>
                                         <div class="col-lg-9">
                                             <input type="text" name="year" id="year" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="classCode" class="col-lg-3 control-label">Year:</label>
-                                        <div class="col-lg-9">
-                                            <select name="classCode" id="classCode" class="form-control">
-                                                <option disabled hidden selected>Choose Code...</option>
-                                                <?php foreach ($codes as $code): ?>
-                                                    <option value="<?php echo $code['classID'] ?>"><?php echo $code['classCode'] ?></option>
-                                                <?php endforeach ?>
-                                            </select>
                                         </div>
                                     </div>
                                 </form>

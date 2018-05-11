@@ -65,6 +65,7 @@
                     <ul class="dropdown-menu">
                       <li><a href="<?php echo base_url('admin/loadInstructorsPage') ?>">Add Instructors</a></li>
                       <li><a href="<?php echo base_url('admin/loadStudentsPage') ?>">Add Students</a></li>
+                      <li><a href="<?php echo base_url('admin/loadAnnouncementPage') ?>">Add Announcements</a></li>
                       <li><a href="<?php echo base_url('admin/loadClassesPage') ?>">Add Classes</a></li>
                     </ul>
                   </li>
@@ -76,7 +77,6 @@
                     <li><a href="<?php echo base_url('instructor/loadRecords') ?>">Records</a></li>    
                     <li><a href="<?php echo base_url('instructor/loadLessonsPage') ?>">Lessons</a></li> 
                     <li><a href="<?php echo base_url('instructor/loadActivitiesPage') ?>">Activities</a></li>
-                    <li><a href="<?php echo base_url('admin/loadAnnouncementPage') ?>">Announcements</a></li>
                   </ul>                        
                 </li>
                 <?php endif ?>

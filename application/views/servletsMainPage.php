@@ -31,32 +31,36 @@
 			            	?>
 			            		<h1><?php echo $lessonData['title'] ?></h1>
 			            		<h2><?php echo $lessonData['heading'] ?></h2>
-			            		<h3>Content:</h3>
 			            		<p><?php echo $lessonData['body'] ?></p>
-			            		<h3>Example:</h3>
-			            		<p><?php echo $lessonData['sample'] ?></p>
+			              		<p><?php echo $lessonData['sample'] ?></p>
 			            	<?php
 			            		}else{
 			            	?>
-			            	<h1>Default Title</h1>
-			            	<h2>Default Heading</h2>
-							<h3>Content:</h3>
-			            	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-			            	<h3>Example:</h3>
-			            	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+			            	<h1>JAVA WEB SERVLETS</h1>
+			            	<p>Java Servlets are programs that run on an Web Application server and act as a middle layer between a request coming from a Web browser or other HTTP client and databases or applications on the HTTP server.Servlets can be created using the javax.servlet and javax.servlet.http packages , which are a standard part of the Java's enterprise edition, an expanded version of the Java class library that supports large-scale development projects</p>
+
+			            	<h4>Servlet Processing</h4>
+          					</div>
+          					<p><li>Client sends a request to a web server URL that is mapped to a servlet. Web server passes on the request to the servlet container.</li></p>
+         					<p><li>Servlet container checks if servlet is already loaded.</li></p>
+         					<p> <li>If it is not yet loaded, servlet container loads the servlet class and instantiates the servlet, and calls its init method.</li></p>
+        					<p><li>Servlet container invokes the servlet's service method, passing request and response objects as arguments.</li></p>
+        					<p><li>Servlet processes the request using the response object to create the response, which is returned by the servlet container to the web server, which in turn sends the response to the client.</li></p>
+        					<p><li>Subsequent request to the servlet will not require servlet re-instantiation, unless the servlet has been unloaded; before a servlet is unloaded, the servlet container invokes its destroy method.</li></p>
+
 			            	<?php 
 				            	}
 			            	?>
-			            </div>
-			            <div class="panel-footer">
-			            	<div class="row">
-	
-			            	</div>
 			            </div>
 	            	</div>
 	    		</div>
 	    	</div>
         </div>
     </section>
+    <div class="panel-footer">
+			            	<div class="row">
+	
+			            	</div>
+			            </div>
     <!-- Courses Section End -->
 

@@ -64,8 +64,8 @@ class Instructor extends CI_Controller
 
 		$this->form_validation->set_rules('topic', 'Topic', 'trim');
 		$this->form_validation->set_rules('title', 'Title', 'trim|required');
-		$this->form_validation->set_rules('heading', 'Heading', 'trim|required');
-		$this->form_validation->set_rules('body', 'Body', 'trim|required');
+		$this->form_validation->set_rules('heading', 'Heading', 'trim');
+		$this->form_validation->set_rules('body', 'Body', 'required');
 		$this->form_validation->set_rules('sample', 'Sample', 'trim');
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
@@ -99,23 +99,6 @@ class Instructor extends CI_Controller
 
 		redirect('instructor/loadLessonsPage');
 
-	}
-
-	public function addActivitie(){
-		$topic = $this->input->post('topic'); 
-		$aDesc = $this->input->post('description');
-		$question = $this->input->post('question[]');
-		$answer = $this->input->post('answer[]');
-
-		$activityID = $this->user_model->insertNewActivity($topic, $aDesc);
-
-		for ($i=0; $i < sizeof($question); $i++) { 
-			$this->user_model->insertQuestionAnswer($question[$i], $answer[$i], $activityID);	
-		}
-
-		$data['success'] = true;
-
-		echo json_encode($data);
 	}
 }
 ?>
