@@ -50,8 +50,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div id="the-message">
+          
+      </div>
       <div class="modal-body form-horizontal">
-        <form action="" id="addAnnouncementForm">
+        <form method="POST" action="<?php echo base_url('admin/addAnnouncement') ?>" id="addAnnouncementForm">
         	<div class="form-group">
         		<label for="announcementName" class="col-lg-3 control-label">Announcement Name:</label>
         		<div class="col-lg-9">

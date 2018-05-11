@@ -43,6 +43,7 @@
 			$this->load->view('fragments/header.php',$data);
 			$this->load->view('fragments/scripts.php');
 			$this->load->view('adminAnnouncements.php');
+			$this->load->view('process/ajax/addAnnouncementAjax.php');
 			$this->load->view('fragments/footer.php');
 		}
 
@@ -94,6 +95,26 @@
 				$course = ucwords(htmlspecialchars($this->input->post('course')));
 				$year = ucwords(htmlspecialchars($this->input->post('year')));
 				$this->user_model->insertNewStudent($idNumber, $firstName, $middleName, $lastName, $course, $year);
+				$data['success'] = true;
+			}else{
+				foreach ($_POST as $key => $value) {
+					$data['messages'][$key] = form_error($key);
+				}
+			}
+
+			echo json_encode($data);
+		}
+
+		public function addAnnouncement(){
+
+			$data = array('success' => false, 'messages' => array());
+
+			$this->form_validation->set_rules('announcementName', 'Announcement Name', 'trim|required');
+			$this->form_validation->set_rules('announcement', 'Announcement', 'trim|required');
+			$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+			if ($this->form_validation->run()) {
+
 				$data['success'] = true;
 			}else{
 				foreach ($_POST as $key => $value) {

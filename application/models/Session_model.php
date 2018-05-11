@@ -26,5 +26,9 @@
 				redirect('welcome');
 			}
 		}
+
+		public function properAccessCheck(){
+			
+		}
 	}
 ?> 

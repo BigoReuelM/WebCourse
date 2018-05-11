@@ -2,23 +2,40 @@
     <!-- Activity Area Start -->
     <section class="activity-area section">
 
-            <div id="page-content-wrapper">
-                <div class="containers">
-                    <table class="table table-striped table-bordered">
-                        <h1 align="center">Add Activity</h1>
-                    </table>
+        <div class="container">
+            <div class="row">
+                <h1 align="center">Add Activity</h1>
+            </div>
+            <div class="row" align="center">
+                <div class="form-group">
+                    <label for="questionNumber">Number of Questions: </label>
+                    <input type="number" id="questionNumber">
+                </div>
+                <button class="btn-primary" id="activityButton">Go</button>
+            </div>
+            <br>
+            <div class="row">
+                
+            </div>
+            <div class="row">
 
-                        <center><select name="acctype" onchange="javascript:viewIssuance(this.value);" required>
-        					<option value="1" selected="true" disabled="disabled">How many multiple choice questions?</option>
-        					<option value="1">10</option>
-        					<option value="2">20</option>
-        					<option value="3">30</option>
-                            <option value="3">40</option>
-                            <option value="3">50</option>
-        				</select><center>
-                        <!--This is the div to show issuance-->
-                        <div id="issuanceDiv">
+                <div class="panel-info well">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body">
+                        <form action="" id="addQuestionForm" class="form-horizontal">
+                    
+                    
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <button type="submit" form="addQuestionForm" class="btn btn-primary pull-right">Submit</button>
                         </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
+
     </section>
     <!-- Courses Section End -->
