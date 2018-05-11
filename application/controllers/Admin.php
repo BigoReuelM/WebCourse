@@ -29,6 +29,7 @@
 		public function loadStudentsPage(){
 			$data['session'] = $this->session_model->sessionCheck();
 			$studentData['students'] = $this->user_model->getStudents();
+			$studentData['codes'] = $this->user_model->getClassCodes();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
 			$this->load->view('fragments/scripts.php');
@@ -39,7 +40,7 @@
 
 		public function loadAnnouncementPage(){
 			$data['session'] = $this->session_model->sessionCheck();
-			$announcmentData['announcments'] = $this->user_model->getAnnouncements();
+			$announcmentData['announcements'] = $this->user_model->getAnnouncements();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
 			$this->load->view('fragments/scripts.php');
@@ -107,7 +108,8 @@
 				$lastName = ucwords(htmlspecialchars($this->input->post('lastName')));
 				$course = ucwords(htmlspecialchars($this->input->post('course')));
 				$year = ucwords(htmlspecialchars($this->input->post('year')));
-				$this->user_model->insertNewStudent($idNumber, $firstName, $middleName, $lastName, $course, $year);
+				$code = htmlspecialchars($this->input->post('classCode'));
+				$this->user_model->insertNewStudent($idNumber, $firstName, $middleName, $lastName, $course, $year, $code);
 				$data['success'] = true;
 			}else{
 				foreach ($_POST as $key => $value) {
@@ -127,7 +129,10 @@
 			$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
 			if ($this->form_validation->run()) {
+				$name = ucwords(htmlspecialchars($this->input->post('announcementName')));
+				$announcement = ucwords(htmlspecialchars($this->input->post('announcement')));
 
+				$this->user_model->insertNewAnnouncement($name, $announcement);
 				$data['success'] = true;
 			}else{
 				foreach ($_POST as $key => $value) {

@@ -18,21 +18,19 @@
 	        		<table class="table table-bordered table-striped table-hover js-basic-example dataTable">
 		                <thead>
 		                    <tr>
-		                        <th>First Name</th>
-		                        <th>Middle Name</th>
-		                        <th>Last Name</th>
-		                        <th>Course</th>
-		                        <th>Year</th>
+		                        <th>Announcement</th>
+		                        <th>Announcement Content</th>
+		                        <th>Announcer</th>
 		                    </tr>
 		                </thead>
 		                <tbody>
-		                    <tr>
-		                        <td></td>
-		                        <td></td>
-		                        <td></td>
-		                        <td></td>
-		                        <td></td>
-		                    </tr>
+		                    <?php foreach ($announcements as $announcement): ?>
+                          <tr>
+                              <td><?php echo $announcement['announcementName'] ?></td>
+                              <td><?php echo $announcement['announcementContent'] ?></td>
+                              <td><?php echo $announcement['firstName'] . ' ' . $announcement['middleName'] . ' ' . $announcement['lastName'] ?></td>
+                          </tr>
+                        <?php endforeach ?>
 		                </tbody>
 		            </table>
 	        	</div>

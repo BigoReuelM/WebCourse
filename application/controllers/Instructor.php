@@ -100,5 +100,22 @@ class Instructor extends CI_Controller
 		redirect('instructor/loadLessonsPage');
 
 	}
+
+	public function addActivitie(){
+		$topic = $this->input->post('topic'); 
+		$aDesc = $this->input->post('description');
+		$question = $this->input->post('question[]');
+		$answer = $this->input->post('answer[]');
+
+		$activityID = $this->user_model->insertNewActivity($topic, $aDesc);
+
+		for ($i=0; $i < sizeof($question); $i++) { 
+			$this->user_model->insertQuestionAnswer($question[$i], $answer[$i], $activityID);	
+		}
+
+		$data['success'] = true;
+
+		echo json_encode($data);
+	}
 }
 ?>
