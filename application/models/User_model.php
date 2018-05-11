@@ -13,7 +13,7 @@
 			if ($query = $this->db->get()) {
 				$userData = $query->row_array();
 				if (password_verify($password, $userData['password'])) {
-					return $query->row_array();
+					return $query->row_array();		
 				}else{
 					return false;
 				}
@@ -22,9 +22,21 @@
 			}
 		}
 
+		public function getInstructorDetails($id){
+			$this->db->select('*');
+			$this->db->from('users');
+			$this->db->join('instructor', 'users.userID = instructor.userID');
+			$this->db->where('users.userID', $id);
+
+			$query = $this->db->get();
+
+			return $query->row_array();
+		} 
+
 		public function getInstructors(){
 			$this->db->select('*');
 			$this->db->from('users');
+			$this->db->join('instructor', 'users.userID = instructor.userID');
 			$this->db->where('userType', 'instructor');
 			$query = $this->db->get();
 			return $query->result_array();
@@ -34,6 +46,23 @@
 			$this->db->select('*');
 			$this->db->from('users');
 			$this->db->where('userType', 'student');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		public function getClasses(){
+			$this->db->select('*');
+			$this->db->from('class');
+			$this->db->join('instructor', 'class.instructorID = instructor.instructorID');
+			$this->db->join('users', 'instructor.userID = users.userID');
+			$query = $this->db->get();
+			return $query->result_array();
+		}
+
+		public function getAnnouncements(){
+			$this->db->select('*');
+			$this->db->from('announcement');
+			$this->db->join('users', 'announcement.instructorID = users.userID');
 			$query = $this->db->get();
 			return $query->result_array();
 		}
@@ -51,6 +80,15 @@
 			);
 
 			$this->db->insert('users', $data);
+
+			$newInstructorID = $this->db->insert_id();
+
+			$secondData = array(
+				'department' => 'IT Department',
+				'userID' => $newInstructorID
+			);
+
+			$this->db->insert('instructor', $secondData);
 
 		}
 
@@ -75,7 +113,7 @@
 		public function insertNewLesson($idNumber, $topic, $title, $heading, $body, $sample){
 
 			$data = array(
-				'instructor' => $idNumber,
+				'instructorID' => $idNumber,
 				'topic' => $topic,
 				'title' => $title,
 				'heading' => $heading,
@@ -84,6 +122,17 @@
 			);
 
 			$this->db->insert('content', $data);
+
+		}
+
+		public function insertNewClass($classCode, $instructorID){
+
+			$data = array(
+				'classCode' => $classCode,
+				'instructorID' => $instructorID
+			);
+
+			$this->db->insert('class', $data);
 
 		}
 

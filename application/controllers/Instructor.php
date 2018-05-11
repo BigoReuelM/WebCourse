@@ -70,7 +70,7 @@ class Instructor extends CI_Controller
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
 		if ($this->form_validation->run()) {
-			$idNumber = $this->session->userdata('userID');
+			$idNumber = $this->session->userdata('instructorID');
 			$topic = htmlspecialchars($this->input->post('topic'));
 			$title = htmlspecialchars($this->input->post('title'));
 			$heading = htmlspecialchars($this->input->post('heading'));

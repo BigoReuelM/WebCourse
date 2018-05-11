@@ -37,18 +37,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				redirect('user/index');
 			}
 
-			$data = $this->user_model->loginUser($loginID, $password);
+			$userdata = $this->user_model->loginUser($loginID, $password);
 
-			if($data){
-				$this->session->set_userdata('userID', $data['userID']);
-				$this->session->set_userdata('firstName', $data['firstName']);
-				$this->session->set_userdata('middleName', $data['middleName']);
-				$this->session->set_userdata('lastName', $data['lastName']);
-				$this->session->set_userdata('userType', $data['userType']);
-				$this->session->set_userdata('instructor', $data['instructor']);
-				$this->session->set_userdata('course', $data['course']);
-				$this->session->set_userdata('year', $data['year']);
+			if($userdata){
+				if ($userdata['userType'] === 'instructor') {
 
+					$data = $this->user_model->getInstructorDetails($userdata['userID']);
+
+					$this->session->set_userdata('userID', $data['userID']);
+					$this->session->set_userdata('firstName', $data['firstName']);
+					$this->session->set_userdata('middleName', $data['middleName']);
+					$this->session->set_userdata('lastName', $data['lastName']);
+					$this->session->set_userdata('userType', $data['userType']);
+					$this->session->set_userdata('department', $data['department']);
+					$this->session->set_userdata('instructorID', $data['instructorID']);
+				}else{
+					$this->session->set_userdata('userID', $data['userID']);
+					$this->session->set_userdata('firstName', $data['firstName']);
+					$this->session->set_userdata('middleName', $data['middleName']);
+					$this->session->set_userdata('lastName', $data['lastName']);
+					$this->session->set_userdata('userType', $data['userType']);
+				}
+				
 				redirect('welcome/index');
 			}else{
 				$this->session->set_flashdata('error_msg', 'Error occured, Try again.');

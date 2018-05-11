@@ -39,11 +39,24 @@
 
 		public function loadAnnouncementPage(){
 			$data['session'] = $this->session_model->sessionCheck();
+			$announcmentData['announcments'] = $this->user_model->getAnnouncements();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
 			$this->load->view('fragments/scripts.php');
-			$this->load->view('adminAnnouncements.php');
+			$this->load->view('adminAnnouncements.php', $announcmentData);
 			$this->load->view('process/ajax/addAnnouncementAjax.php');
+			$this->load->view('fragments/footer.php');
+		}
+
+		public function loadClassesPage(){
+			$data['session'] = $this->session_model->sessionCheck();
+			$classData['classes'] = $this->user_model->getClasses();
+			$classData['instructors'] = $this->user_model->getInstructors();
+			$this->load->view('fragments/head.php');
+			$this->load->view('fragments/header.php',$data);
+			$this->load->view('fragments/scripts.php');
+			$this->load->view('adminClasses.php', $classData);
+			$this->load->view('process/ajax/addClassAjax.php');
 			$this->load->view('fragments/footer.php');
 		}
 
@@ -119,6 +132,32 @@
 			}else{
 				foreach ($_POST as $key => $value) {
 					$data['messages'][$key] = form_error($key);
+				}
+			}
+
+			echo json_encode($data);
+		}
+
+		public function addClass(){
+
+			$data = array('success' => false, 'messages' => array());
+
+			$this->form_validation->set_rules('classcode', 'Class Code', 'trim|required');
+			$this->form_validation->set_rules('classInstructor', 'Class Instructor', 'trim|required');
+			$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+			if ($this->form_validation->run()) {
+				$classCode = $this->input->post('classcode');
+				$instructor = $this->input->post('classInstructor');
+
+				$this->user_model->insertNewClass($classCode, $instructor);
+				$data['success'] = true;
+			}else{
+				foreach ($_POST as $key => $value) {
+					$data['messages'][$key] = form_error($key);
+					if (!isset($_POST['classInstructor'])) {
+						$data['messages']['classInstructor'] = '<p class="text-danger">The Instructor Field is Required!</p>';
+					}
 				}
 			}
 
