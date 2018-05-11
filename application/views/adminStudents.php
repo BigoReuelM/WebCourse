@@ -4,53 +4,44 @@
         <!-- Main Container -->
     <div id="page-content-wrapper">
         <div class="container">
-            <table class="table table-striped table-bordered">
+            <div class="row">
                 <h1 align="center">Add Student</h1>
-            </table>
-
-
-                <table class="table table-striped table-bordered">
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Students</button>
-                </table>
-
-                <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    </a>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>First Name</th>
-                                            <th>Middle Name</th>
-                                            <th>Last Name</th>
-                                            <th>Course</th>
-                                            <th>Year</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <?php foreach ($students as $student): ?>
-                                                <td><?php echo $student['firstName'] ?></td>
-                                                <td><?php echo $student['middleName'] ?></td>
-                                                <td><?php echo $student['lastName'] ?></td>
-                                                <td><?php echo $student['course'] ?></td>
-                                                <td><?php echo $student['year'] ?></td>
-                                            <?php endforeach ?>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button type="button" class="btn btn-info btn-lg  pull-right" data-toggle="modal" data-target="#myModal">Add Students</button>
                 </div>
             </div>
+            <br>
+                <div class="body well">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Middle Name</th>
+                                    <th>Last Name</th>
+                                    <th>Course</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <?php foreach ($students as $student): ?>
+                                        <td><?php echo $student['firstName'] ?></td>
+                                        <td><?php echo $student['middleName'] ?></td>
+                                        <td><?php echo $student['lastName'] ?></td>
+                                        <td><?php echo $student['course'] ?></td>
+                                        <td><?php echo $student['year'] ?></td>
+                                    <?php endforeach ?>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
                 <!-- Modal -->
                 <div id="myModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
