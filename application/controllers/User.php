@@ -51,7 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$this->session->set_userdata('userType', $data['userType']);
 					$this->session->set_userdata('department', $data['department']);
 					$this->session->set_userdata('instructorID', $data['instructorID']);
-				}else{
+				}
+
+				if($userdata['userType'] === 'admin') {
+
+					$data = $this->user_model->getAdminDetails($userdata['userID']);
 					$this->session->set_userdata('userID', $data['userID']);
 					$this->session->set_userdata('firstName', $data['firstName']);
 					$this->session->set_userdata('middleName', $data['middleName']);

@@ -31,6 +31,16 @@
 			$query = $this->db->get();
 
 			return $query->row_array();
+		}
+
+		public function getAdminDetails($id){
+			$this->db->select('*');
+			$this->db->from('users');
+			$this->db->where('userID', $id);
+
+			$query = $this->db->get();
+
+			return $query->row_array();
 		} 
 
 		public function getInstructors(){
