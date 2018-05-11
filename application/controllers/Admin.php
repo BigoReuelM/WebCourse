@@ -114,6 +114,9 @@
 			}else{
 				foreach ($_POST as $key => $value) {
 					$data['messages'][$key] = form_error($key);
+					if (!isset($_POST['classCode'])) {
+						$data['messages']['classCode'] = '<p class="text-danger">The Class Code is Required!</p>';
+					}
 				}
 			}
 

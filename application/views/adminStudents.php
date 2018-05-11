@@ -43,7 +43,7 @@
         </div>
 </section>
                 <!-- Modal -->
-                <div id="myModal" class="modal fade" role="dialog">
+                <div id="myModal" abindex="-1" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
                         <div class="modal-content">
@@ -56,44 +56,63 @@
                             </div>
                             <div class="modal-body form-horizontal">
                                 <form action="<?php echo base_url('admin/addStudent') ?>" method="POST" id="addStudentForm" autocomplete="off">
-                                    <div class="form-group">
-                                        <label for="idNumber" class="col-lg-3 control-label">Id Number:</label>
-                                        <div class="col-lg-9">
-                                            <input type="text" name="idNumber" id="idNumber" class="form-control">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="idNumber" class="col-lg-3 control-label">Id Number:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="idNumber" id="idNumber" class="form-control">
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="firstName" class="col-lg-3 control-label">First Name:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="firstName" id="firstName" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="middleName" class="col-lg-3 control-label">Middle Name:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="middleName" id="middleName" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="lastName" class="col-lg-3 control-label">Last Name:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="lastName" id="lastName" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="course" class="col-lg-3 control-label">Course:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="course" id="course" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="year" class="col-lg-3 control-label">Year:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="year" id="year" class="form-control">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="firstName" class="col-lg-3 control-label">First Name:</label>
-                                        <div class="col-lg-9">
-                                            <input type="text" name="firstName" id="firstName" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="middleName" class="col-lg-3 control-label">Middle Name:</label>
-                                        <div class="col-lg-9">
-                                            <input type="text" name="middleName" id="middleName" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastName" class="col-lg-3 control-label">Last Name:</label>
-                                        <div class="col-lg-9">
-                                            <input type="text" name="lastName" id="lastName" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="course" class="col-lg-3 control-label">Course:</label>
-                                        <div class="col-lg-9">
-                                            <input type="text" name="course" id="course" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="year" class="col-lg-3 control-label">Year:</label>
-                                        <div class="col-lg-9">
-                                            <input type="text" name="year" id="year" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="classCode" class="col-lg-3 control-label">Year:</label>
+                                        <label for="classCode" class="col-lg-3 control-label">Class Code:</label>
                                         <div class="col-lg-9">
                                             <select name="classCode" id="classCode" class="form-control">
                                                 <option disabled hidden selected>Choose Code...</option>
