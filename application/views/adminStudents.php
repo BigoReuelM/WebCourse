@@ -43,7 +43,7 @@
         </div>
 </section>
                 <!-- Modal -->
-                <div id="myModal" abindex="-1" class="modal fade" role="dialog">
+                <div id="myModal" tabindex="-1" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
                         <div class="modal-content">
@@ -126,6 +126,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-lg btn-primary" type="submit" form="addStudentForm">Add</button>
+                                <button class="btn btn-lg btn-danger" data-dismiss="modal">Cancel</button>
                             </div>
                         </div>
                     </div>
