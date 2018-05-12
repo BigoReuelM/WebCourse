@@ -21,6 +21,7 @@ class Instructor extends CI_Controller
 
 	public function loadRecords(){
 		$data['session'] = $this->session_model->sessionCheck();
+		$this->session_model->properAccessCheckInstructor();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
@@ -31,6 +32,7 @@ class Instructor extends CI_Controller
 
 	public function loadActivitiesPage(){
 		$data['session'] = $this->session_model->sessionCheck();
+		$this->session_model->properAccessCheckInstructor();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
@@ -41,6 +43,7 @@ class Instructor extends CI_Controller
 
 	public function loadLessonsPage(){
 		$data['session'] = $this->session_model->sessionCheck();
+		$this->session_model->properAccessCheckInstructor();
 		$data['topics'] = array(
 				"servlets",
 				"jsp",
@@ -60,6 +63,7 @@ class Instructor extends CI_Controller
 	
 	public function loadActivitiesView(){
 		$data['session'] = $this->session_model->sessionCheck();
+		$this->session_model->properAccessCheckInstructor();
 		$actData['activities'] = $this->user_model->getActivities();
 		$actData['questions'] = $this->user_model->getActivityQuestions();
 		$this->load->view('fragments/head.php');
@@ -71,6 +75,7 @@ class Instructor extends CI_Controller
 
 	public function loadClassView(){
 		$data['session'] = $this->session_model->sessionCheck();
+		$this->session_model->properAccessCheckInstructor();
 		$classData['classes'] = $this->user_model->getInstructorClass();
 		$classData['students'] = $this->user_model->getClassStudents();
 		$this->load->view('fragments/head.php');

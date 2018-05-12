@@ -17,6 +17,7 @@
 
 		public function loadInstructorsPage(){
 			$data['session'] = $this->session_model->sessionCheck();
+			$this->session_model->properAccessCheckAdmin();
 			$instructorData['instructors'] = $this->user_model->getInstructors();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php', $data);
@@ -28,6 +29,7 @@
 
 		public function loadStudentsPage(){
 			$data['session'] = $this->session_model->sessionCheck();
+			$this->session_model->properAccessCheckAdmin();
 			$studentData['students'] = $this->user_model->getStudents();
 			$studentData['codes'] = $this->user_model->getClassCodes();
 			$this->load->view('fragments/head.php');
@@ -40,6 +42,7 @@
 
 		public function loadAnnouncementPage(){
 			$data['session'] = $this->session_model->sessionCheck();
+			$this->session_model->properAccessCheckAdmin();
 			$announcmentData['announcements'] = $this->user_model->getAnnouncements();
 			$this->load->view('fragments/head.php');
 			$this->load->view('fragments/header.php',$data);
@@ -51,6 +54,7 @@
 
 		public function loadClassesPage(){
 			$data['session'] = $this->session_model->sessionCheck();
+			$this->session_model->properAccessCheckAdmin();
 			$classData['classes'] = $this->user_model->getClasses();
 			$classData['instructors'] = $this->user_model->getInstructors();
 			$this->load->view('fragments/head.php');

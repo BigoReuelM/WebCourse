@@ -27,8 +27,16 @@
 			}
 		}
 
-		public function properAccessCheck(){
-			
+		public function properAccessCheckAdmin(){
+			if (!isset($_SESSION['userID']) || $_SESSION['userType'] !== "admin") {
+				redirect('welcome');
+			}
+		}
+
+		public function properAccessCheckInstructor(){
+			if (!isset($_SESSION['userID']) || $_SESSION['userType'] !== "instructor") {
+				redirect('welcome');
+			}
 		}
 	}
 ?> 

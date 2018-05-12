@@ -72,8 +72,7 @@
                 <?php if ($session['userRole'] === "instructor"): ?>
                   <li class="dropdown dropdown-toggle">
                     <a href="#" data-toggle="dropdown">Manage<i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="<?php echo base_url('instructor/loadRecords') ?>">Records</a></li>    
+                    <ul class="dropdown-menu">    
                       <li><a href="<?php echo base_url('instructor/loadLessonsPage') ?>">Lessons</a></li> 
                       <li><a href="<?php echo base_url('instructor/loadActivitiesPage') ?>">Activities</a></li>
                       <li><a href="<?php echo base_url('admin/loadAnnouncementPage') ?>">Announcements</a></li>
