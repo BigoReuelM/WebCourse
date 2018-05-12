@@ -4,7 +4,7 @@
     <section class="activity-area section">
         <div class="container">
             <div class="row">
-	    		<div class="col-lg-3">
+	    		<div class="col-lg-5">
 	    			<div class="well">
 	    				<a class="btn btn-block btn-success" href="<?php echo base_url('welcome/setWebSecurityLessonID') ?>">Web Security</a>				    	
 						<form method="POST" action="<?php echo base_url('welcome/setWebSecurityLessonID') ?>">
@@ -21,7 +21,7 @@
 						</form>				    	
 	    			</div>
 	    		</div>
-	    		<div class="col-lg-9">
+	    		<div class="col-lg-7">
 	    			<div class="panel form-horizontal well">
 			            <div class="panel-body">
 			            	
