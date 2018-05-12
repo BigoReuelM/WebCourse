@@ -18,19 +18,15 @@
 	        		<table class="table table-bordered table-striped table-hover js-basic-example dataTable">
 		                <thead>
 		                    <tr>
-		                        <th>Announcement</th>
+		                        <th>Announcement Name</th>
 		                        <th>Announcement Content</th>
-		                        <th>Announcer</th>
 		                    </tr>
 		                </thead>
 		                <tbody>
-		                    <?php foreach ($announcements as $announcement): ?>
-                          <tr>
-                              <td><?php echo $announcement['announcementName'] ?></td>
-                              <td><?php echo $announcement['announcementContent'] ?></td>
-                              <td><?php echo $announcement['firstName'] . ' ' . $announcement['middleName'] . ' ' . $announcement['lastName'] ?></td>
-                          </tr>
-                        <?php endforeach ?>
+		                    <tr>
+		                        <td></td>
+		                        <td></td>
+		                    </tr>
 		                </tbody>
 		            </table>
 	        	</div>
@@ -43,7 +39,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Add Announcement</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

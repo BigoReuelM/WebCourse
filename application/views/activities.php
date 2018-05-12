@@ -22,11 +22,11 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <form method="POST" action="<?php echo base_url('instructor/addActivitie') ?>" id="addQuestionForm" class="form-horizontal">
+                        <form action="" id="addQuestionForm" class="form-horizontal">
                             <div class="form-group">
                                 <label for="topicName" class="col-lg-3 control-label">Select Topic:</label>
                                 <div class="col-lg-9">
-                                    <select name="topic" id="topic" class="form-control" required>
+                                    <select class="form-control">
                                         <option selected disabled hidden>Choose Topic for This Activity...</option>
                                         <option value="servlets">Java Web Servlets</option>
                                         <option value="jsp">Java Server Pages</option>
@@ -35,12 +35,6 @@
                                         <option value="webSecurity">Web Application Security</option>
                                     </select>
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="description" class="col-lg-3 control-label">Activity Description:</label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="description" id="description" class="form-control" required>
                                 </div>
                             </div>
                     

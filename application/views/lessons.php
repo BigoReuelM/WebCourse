@@ -70,8 +70,8 @@
 			            		<div class="form-group">
 			            			<label for="heading" class="col-lg-2 control-label">Heading:</label>
 			            			<div class="col-lg-10">
-			            				<input type="text" name="heading" class="form-control" id="heading">
-			            			</div>
+			            				<textarea type="text" name="heading" class="form-control" id="heading">
+			            			</textarea>
 			            		</div>
 			            		<div class="form-group">
 			            			<label for="body" class="col-lg-2 control-label">Body:</label>

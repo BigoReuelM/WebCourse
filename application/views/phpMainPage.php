@@ -38,24 +38,62 @@
 			            	<?php
 			            		}else{
 			            	?>
-			            	<h1>Default Title</h1>
-			            	<h2>Default Heading</h2>
-							<h3>Content:</h3>
-			            	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-			            	<h3>Example:</h3>
-			            	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+			            	<h1>PHP</h1>
+			            	<p>PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages.PHP is a widely-used, free, and efficient alternative to competitors such as Microsoft's ASP. It is also used as a general-purpose programming language.</p>
+
+			            	<li><b><a>Superglobals</a></b></li>	
+							<p> Superglobals are available in all scopes throughout a script. There is no need to do global $variable; to access them within functions or methods.</p>
+							<ul>
+							<li data-toggle="collapse" data-target="#global" class="li"><b><a>$GLOBALS</a></b></li>
+							<div id="global" class="collapse">
+							References all variables available in global scope
+							</div>
+							<li data-toggle="collapse" data-target="#server" class="li"><b><a>$_SERVER</a></b></li>
+							<div id="server" class="collapse">
+							Server and execution environment information
+							</div>
+							<li data-toggle="collapse" data-target="#get" class="li"><b><a>$_GET</a></b></li>
+							<div id="get" class="collapse">
+							HTTP GET variables
+							</div>					
+							<li data-toggle="collapse" data-target="#posts" class="li"><b><a>$_POST</a></b></li>
+							<div id="posts" class="collapse">
+								HTTP POST variables
+							</div>					
+							<li data-toggle="collapse" data-target="#filu" class="li"><b><a>$_FILES</a></b></li>
+							<div id="filu" class="collapse">
+							HTTP File Upload variables
+							</div>					
+							<li data-toggle="collapse" data-target="#cookies" class="li"><b><a>$_COOKIE</a></b></li>
+							<div id="cookies" class="collapse">
+							HTTP Cookies
+							</div>				
+							<li data-toggle="collapse" data-target="#sessions" class="li"><b><a>$_SESSION</a></b></li>
+							<div id="sessions" class="collapse">
+							Session variables
+							</div>
+							<li data-toggle="collapse" data-target="#request" class="li"><b><a>$_REQUEST</a></b></li>
+							<div id="request" class="collapse">
+							HTTP Request variables
+							</div>					
+							<li data-toggle="collapse" data-target="#env" class="li"><b><a>$_ENV</a></b></li>
+							<div id="env" class="collapse">
+							Environment variables
+							</div>					
+							</ul>
+							</div>
 			            	<?php 
 				            	}
 			            	?>
-			            </div>
-			            <div class="panel-footer">
-			            	<div class="row">
-	
-			            	</div>
 			            </div>
 	            	</div>
 	    		</div>
 	    	</div>
         </div>
     </section>
+    <div class="panel-footer">
+			            	<div class="row">
+	
+			            	</div>
+			            </div>
     <!-- Courses Section End -->

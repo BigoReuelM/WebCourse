@@ -28,23 +28,3 @@
 		}
 	});
 </script>
-
-<script>
-    $('#addQuestionForm').submit(function(e){
-        e.preventDefault();
-
-        var activityDetails = $(this);
-
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: activityDetails.attr('action'),
-            data: activityDetails.serialize(),
-            success: function(response){
-                if (response.success == true) {
-                	alert("Activity Has Been Saved!");
-                }
-            }
-        });
-    });
-</script>
