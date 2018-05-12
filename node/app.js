@@ -1,6 +1,5 @@
 var express = require('express');
 var session = require('express-session');
-var db = require('./model/dbconnect');
 var mysql      = require('mysql');
 const url = require('url');
 
