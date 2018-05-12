@@ -60,10 +60,12 @@ class Instructor extends CI_Controller
 	
 	public function loadActivitiesView(){
 		$data['session'] = $this->session_model->sessionCheck();
+		$actData['activities'] = $this->user_model->getActivities();
+		$actData['questions'] = $this->user_model->getActivityQuestions();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
-		$this->load->view('instructorViewActivities.php');
+		$this->load->view('instructorViewActivities.php', $actData);
 		$this->load->view('fragments/footer.php');
 	}
 
@@ -146,6 +148,16 @@ class Instructor extends CI_Controller
 			$this->session->set_userData('classCode', $code);
 		}
 		redirect('instructor/loadClassView');
+	}
+
+	public function setActivityID(){
+		if (!isset($_POST['activity'])) {
+			$this->session->set_userData('activityID', "default");
+		}else{
+			$code = $this->input->post('activity');
+			$this->session->set_userData('activityID', $code);
+		}
+		redirect('instructor/loadActivitiesView');
 	}
 }
 ?>

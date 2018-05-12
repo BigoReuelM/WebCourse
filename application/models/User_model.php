@@ -130,6 +130,26 @@
 			return $query->result_array();
 		}
 
+		public function getActivities(){
+			$this->db->select('*');
+			$this->db->from('activity');
+
+			$query = $this->db->get();
+
+			return $query->result_array();
+		}
+
+		public function getActivityQuestions(){
+			$actID = $this->session->userData('activityID');
+			$this->db->select('*');
+			$this->db->from('questions');
+			$this->db->where('activityID', $actID);
+
+			$query = $this->db->get();
+
+			return $query->result_array();
+		}
+
 		public function insertNewInstructor($instructorID, $fname, $mname, $lname){
 			$hashPass = password_hash("password", PASSWORD_BCRYPT);
 			$data = array(
