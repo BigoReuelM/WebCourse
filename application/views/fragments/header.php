@@ -84,7 +84,7 @@
                     <ul class="dropdown-menu">
                       <li><a href="<?php echo base_url('instructor/loadRecords') ?>">View Records</a></li>
                       <li><a href="<?php echo base_url('instructor/loadActivitiesView') ?>">View Activities</a></li>
-                      <li><a href="<?php echo base_url('instructor/loadClassView') ?>">View Classes</a></li>
+                      <li><a href="<?php echo base_url('instructor/setClassCode') ?>">View Classes</a></li>
                     </ul>
                   </li>
                 <?php endif ?>

@@ -61,6 +61,36 @@
 			return $query->result_array();
 		}
 
+		public function getClassStudents(){
+			$classCode = $this->session->userData('classCode');
+			$instructorID = $this->session->userData('instructorID');
+
+			if ($classCode === "default") {
+				$this->db->select('*');
+				$this->db->from('users');
+				$this->db->join('students', 'users.userID = students.userID');
+				$this->db->join('class', 'students.classID = class.classID');
+				$this->db->join('instructor', 'class.instructorID = instructor.instructorID');
+				$this->db->where('instructor.instructorID', $instructorID);
+
+				$query = $this->db->get();
+
+				return $query->result_array();
+			}else{
+				$this->db->select('*');
+				$this->db->from('users');
+				$this->db->join('students', 'users.userID = students.userID');
+				$this->db->join('class', 'students.classID = class.classID');
+				$this->db->join('instructor', 'class.instructorID = instructor.instructorID');
+				$this->db->where('class.classID', $classCode);
+				$this->db->where('instructor.instructorID', $instructorID);
+
+				$query = $this->db->get();
+
+				return $query->result_array();
+			}
+		}
+
 		public function getClasses(){
 			$this->db->select('*');
 			$this->db->from('class');
@@ -73,6 +103,18 @@
 		public function getClassCodes(){
 			$this->db->select('*');
 			$this->db->from('class');
+
+			$query = $this->db->get();
+
+			return $query->result_array();
+		}
+
+		public function getInstructorClass(){
+			$id = $this->session->userData('instructorID');
+
+			$this->db->select('*');
+			$this->db->from('class');
+			$this->db->where('instructorID', $id);
 
 			$query = $this->db->get();
 

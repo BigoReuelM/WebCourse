@@ -69,10 +69,12 @@ class Instructor extends CI_Controller
 
 	public function loadClassView(){
 		$data['session'] = $this->session_model->sessionCheck();
+		$classData['classes'] = $this->user_model->getInstructorClass();
+		$classData['students'] = $this->user_model->getClassStudents();
 		$this->load->view('fragments/head.php');
 		$this->load->view('fragments/header.php',$data);
 		$this->load->view('fragments/scripts.php');
-		$this->load->view('instructorViewClass.php');
+		$this->load->view('instructorViewClass.php', $classData);
 		$this->load->view('fragments/footer.php');
 	}
 
@@ -134,6 +136,16 @@ class Instructor extends CI_Controller
 		$data['success'] = true;
 
 		echo json_encode($data);
+	}
+
+	public function setClassCode(){
+		if (!isset($_POST['classCode'])) {
+			$this->session->set_userData('classCode', "default");
+		}else{
+			$code = $this->input->post('classCode');
+			$this->session->set_userData('classCode', $code);
+		}
+		redirect('instructor/loadClassView');
 	}
 }
 ?>
