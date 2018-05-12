@@ -40,31 +40,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$userdata = $this->user_model->loginUser($loginID, $password);
 
 			if($userdata){
-				if ($userdata['userType'] === 'instructor') {
+			    if($userdata['userType'] !== 'student'){
 
-					$data = $this->user_model->getInstructorDetails($userdata['userID']);
+                    if ($userdata['userType'] === 'instructor') {
 
-					$this->session->set_userdata('userID', $data['userID']);
-					$this->session->set_userdata('firstName', $data['firstName']);
-					$this->session->set_userdata('middleName', $data['middleName']);
-					$this->session->set_userdata('lastName', $data['lastName']);
-					$this->session->set_userdata('userType', $data['userType']);
-					$this->session->set_userdata('department', $data['department']);
-					$this->session->set_userdata('instructorID', $data['instructorID']);
-				}
+                        $data = $this->user_model->getInstructorDetails($userdata['userID']);
 
-				if($userdata['userType'] === 'admin') {
+                        $this->session->set_userdata('userID', $data['userID']);
+                        $this->session->set_userdata('firstName', $data['firstName']);
+                        $this->session->set_userdata('middleName', $data['middleName']);
+                        $this->session->set_userdata('lastName', $data['lastName']);
+                        $this->session->set_userdata('userType', $data['userType']);
+                        $this->session->set_userdata('department', $data['department']);
+                        $this->session->set_userdata('instructorID', $data['instructorID']);
+                    }
 
-					$data = $this->user_model->getAdminDetails($userdata['userID']);
-					$this->session->set_userdata('userID', $data['userID']);
-					$this->session->set_userdata('firstName', $data['firstName']);
-					$this->session->set_userdata('middleName', $data['middleName']);
-					$this->session->set_userdata('lastName', $data['lastName']);
-					$this->session->set_userdata('userType', $data['userType']);
-				}
-				
-				redirect('welcome/index');
-			}else{
+                    if($userdata['userType'] === 'admin') {
+
+                        $data = $this->user_model->getAdminDetails($userdata['userID']);
+                        $this->session->set_userdata('userID', $data['userID']);
+                        $this->session->set_userdata('firstName', $data['firstName']);
+                        $this->session->set_userdata('middleName', $data['middleName']);
+                        $this->session->set_userdata('lastName', $data['lastName']);
+                        $this->session->set_userdata('userType', $data['userType']);
+                    }
+                        redirect('welcome/index');
+                }else{
+                    $host = $_SERVER['HTTP_HOST'];
+                    redirect('http://'.$host.':3000/'.$userdata['userID']);
+                }
+
+            }else{
 				$this->session->set_flashdata('error_msg', 'Error occured, Try again.');
 				redirect('user/index');
 			}
