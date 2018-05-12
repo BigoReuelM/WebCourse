@@ -58,6 +58,24 @@ class Instructor extends CI_Controller
 		$this->load->view('fragments/footer.php');		
 	}
 	
+	public function loadActivitiesView(){
+		$data['session'] = $this->session_model->sessionCheck();
+		$this->load->view('fragments/head.php');
+		$this->load->view('fragments/header.php',$data);
+		$this->load->view('fragments/scripts.php');
+		$this->load->view('instructorViewActivities.php');
+		$this->load->view('fragments/footer.php');
+	}
+
+	public function loadClassView(){
+		$data['session'] = $this->session_model->sessionCheck();
+		$this->load->view('fragments/head.php');
+		$this->load->view('fragments/header.php',$data);
+		$this->load->view('fragments/scripts.php');
+		$this->load->view('instructorViewClass.php');
+		$this->load->view('fragments/footer.php');
+	}
+
 	public function addLesson(){
 
 		$data = array('success' => false, 'messages' => array());
