@@ -1,0 +1,39 @@
+
+<% include partials/head.ejs %>
+
+
+    <!-- Activity Area Start -->
+    <section id="notes" class="activity-area section">
+        <div class="container">
+            <div class="row">
+	    		<div class="col-lg-5">
+	    			<div class="well">
+	    				<a class="btn btn-block btn-success" href=""><%= title %></a>
+              <% if(content){
+                  content.forEach(function(content){ %>
+								     <button onclick="setNotes(<%= content.contentID %>)" name="topicContent"
+                     class="btn btn-block btn-info topicContent">
+                     <%= content.title %>
+                   </button>
+                <% }) %>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="panel form-horizontal well">
+                    <div id="lessonBody" class="panel-body">
+                      <h1>Select a lesson from the list.</h1>
+                    </div>
+                    <div class="panel-footer">
+                      <div class="row">
+
+                      </div>
+                    </div>
+             </div>
+            </div>
+          <%  }%>
+	    	</div>
+        </div>
+    </section>
+    <!-- Courses Section End -->
+
+    <% include partials/footer.ejs %>

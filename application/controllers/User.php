@@ -1,12 +1,12 @@
-<?php  
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 	/**
-	* 
+	*
 	*/
 	class User extends CI_Controller
 	{
-		
+
 		public function __construct()
 		{
 			parent::__construct();
@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         redirect('welcome/index');
                 }else{
                     $host = $_SERVER['HTTP_HOST'];
-                    redirect('http://'.$host.':3000/'.$userdata['userID']);
+                    redirect('http://'.$host.':3000/index/'.$userdata['userID']);
                 }
 
             }else{
@@ -107,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$newPassword = html_escape($this->input->post('newPassword'));
 				$this->user_model->updateUserPassword($userID, $newPassword);
 				$data['success'] = true;
-				
+
 			}else{
 				foreach ($_POST as $key => $value) {
 					$data['messages'][$key] = form_error($key);
@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		public function password_matches($pass, $userID){
-			
+
 			$password = $this->user_model->getPassword($userID);
 
 			if (!password_verify($pass, $password->password)){
