@@ -2,6 +2,8 @@ var express = require('express');
 var session = require('express-session');
 var mysql      = require('mysql');
 const url = require('url');
+var bodyParser = require('body-parser');
+var arrayCompare = require("array-compare");
 
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -10,6 +12,12 @@ var connection = mysql.createConnection({
   database : 'webtechlec'
 });
 
+
+// create application/json parser
+var jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 var app = express();
 
@@ -25,7 +33,16 @@ app.get('/index/:uid',function(req,res) {
     if (error) throw error;
     var sessData = req.session;
      sessData.userData = results[0];
-     res.redirect('/');
+     if(results[0].userType){
+       connection.query('SELECT * from users inner join students on users.userID = students.userID where students.userID = ?'
+       ,[$uid], function (error, results, fields) {
+          var sessData = req.session;
+          sessData.studData = results[0];
+          res.redirect('/');
+       })
+     }else{
+       res.redirect('/');
+     }
   });
 });
 
@@ -68,9 +85,58 @@ app.get('/notes/:type',function(req,res) {
 });
 
 app.get('/activities',function(req,res) {
-  var sessData = req.session;
+  var sessData = req.session.studData;
+  
+  connection.query('SELECT * from activity', function (error, results, fields) {
+    if (error) throw error;
+    res.render('activities',{data: req.session.userData, activities: results});
+  });
+})
 
-  res.render('activities',{data: req.session.userData});
+
+app.get('/quiz/:actID',function(req,res) {
+  var activityID = req.params.actID;
+  connection.query('SELECT * from questions where activityID = ?',[activityID], function (error, results, fields) {
+    if (error) throw error;
+    res.render('quiz',{data: req.session.userData, quiz: results, actID: activityID});
+  });
+})
+
+app.post('/checkResults/:actID',urlencodedParser,function(req,res) {
+  actID = req.params.actID;
+  studentID = req.session.studData.studentID;
+  var arr = [];
+  var answers = [];
+  var counter = 0;
+  var score = 0;
+
+  if(req.body){
+    for(var key in req.body) {
+      if(req.body.hasOwnProperty(key)){
+        arr.push(req.body[key]);
+      }
+    }
+  }
+  connection.query('SELECT * from questions where activityID = ?',[actID], function (error, results, fields) {
+    if (error) throw error;
+    results.forEach(function(item) {
+
+      if(arr[counter] === item.answer){
+        score++;
+      }
+      counter++;
+    })
+    var post = {
+                dateTime: new Date(),
+                score: score,
+                activityID: actID,
+                studentID: studentID,
+            };
+    connection.query('Insert into records set ?',post, function (error, results, fields) {
+      if (error) throw error;
+      res.render('viewScore',{score: score, counter: counter});
+    });
+  });
 })
 
 app.get('/login',function(req,res) {
@@ -86,6 +152,7 @@ app.get('/logout',function (req,res) {
   req.session.destroy();
   res.redirect('http://localhost/Webcourse');
 })
+
 
 app.listen(3000,function() {
   console.log('Listening on port 3000');
